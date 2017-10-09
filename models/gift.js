@@ -22,6 +22,7 @@ const giftSchema = new Schema({
     required: true
   },
   tags: [String],
+  
   store: Schema.Types.ObjectId,
 
 })

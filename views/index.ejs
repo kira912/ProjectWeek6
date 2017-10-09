@@ -6,10 +6,13 @@
     <p>
       <%= gift.name %>
     </p>
-    <img src="<%= gift.imgPath %>" alt="gift picture" />
+    <img src="<%= gift.imgPath %>" alt="gift picture" width="20%" />
     <p>
       <%= gift.price %> €
     </p>
+    <form action="/giftDetail/<%= gift._id %>" method="get">
+      <input type="submit" value="Voir cadeau">
+    </form>
    <% }) %>
   <% } %>
 </div>
