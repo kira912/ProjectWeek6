@@ -1,0 +1,25 @@
+<h2>Login if you want to save gifts for later...</h2>
+
+<% if (message) { %>
+    <p>
+        <%= message %>
+    </p>
+<% } %>
+
+<form action="/login" method="post">
+    <label>Username <br>
+    <input type="text" name="email" placeholder="email"></label>
+    <br><br>
+
+    <label>Password <br>
+    <input type="password" name="password" placeholder="password"></label>
+    <br><br>
+
+    <button type="submit">Login</button>
+</form>
+
+<p>
+    Don't have an account ?
+    <a href="/signup">
+    Create an account</a>
+</p>

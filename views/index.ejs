@@ -1,0 +1,17 @@
+<h1>Welcome to the </h1>
+
+<div>
+  <% if (allGift.length > 0) { %>
+   <% allGift.forEach((gift) => { %>
+    <p>
+      <%= gift.name %>
+    </p>
+    <img src="<%= gift.imgPath %>" alt="gift picture" />
+    <p>
+      <%= gift.price %> €
+    </p>
+   <% }) %>
+  <% } %>
+</div>
+
+<a href="/logout">Logout</a>

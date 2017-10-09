@@ -1,0 +1,23 @@
+<h2>Signup</h2>
+
+<% if (message) { %>
+    <p>
+        <%= message %>
+    </p>
+<% } %>
+
+<form action="/signup" method="post">
+    <div>
+        <label>Email <br>
+        <input type="email" name="email" placeholder="Email"></label>
+        <br><br>
+    </div>
+
+    <div>
+        <label>Password <br>
+        <input type="password" name="password"></label>
+        <br><br>
+    </div>
+
+    <button>Create New Account</button>
+</form>
