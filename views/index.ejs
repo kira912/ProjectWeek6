@@ -1,6 +1,6 @@
 <h1>Welcome to the </h1>
 
-<div>
+<div class= "gift">
   <% if (allGifts.length > 0) { %>
    <% allGifts.forEach((gift) => { %>
     <p>
@@ -10,7 +10,7 @@
     <p>
       <%= gift.price %> €
     </p>
-    <form action="/giftDetail/<%= gift._id %>" method="get">
+    <form action="/gifts/<%= gift._id %>" method="get">
       <input type="submit" value="Voir cadeau">
     </form>
    <% }) %>

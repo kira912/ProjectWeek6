@@ -12,17 +12,20 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/:id', (req, res, next) => {
-  const giftId = req.params.giftId
+/* Get gift page */
+
+router.get('/gifts/:id', (req, res, next) => {
+  const giftId = req.params.id
 
   Gift.findById(giftId, (err, gift) => {
     if(err) {
       return next(err)
     }
-    res.render('/giftDetail', {
-      gift
+    res.render('giftDetail', {
+      gift : gift
     })
   })
 })
+
 
 module.exports = router;
