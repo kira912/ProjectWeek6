@@ -6,11 +6,22 @@ const Gift = require('../models/gift')
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  Gift.find({}, "name price imgPath")
-    .exec((err, allGifts) => {
-      res.render('index', { allGifts });
-    });
-});
+  const catVal =  req.query.categorie
+  const budgetVal = req.query.budget
+ 
+  var filter = {};
+  if (catVal) {
+   filter.tags = catVal;
+  }
+ 
+  Gift.find(filter, (err, allGifts) => {
+    if (err) {
+      return next(err)
+    }
+    res.render('index',{ allGifts })
+  })
+ })
+ 
 
 /* Get gift page */
 

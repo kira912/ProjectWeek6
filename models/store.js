@@ -7,13 +7,13 @@ const storeSchema = new Schema({
     required: true,
   },
   places: [{
-    location:{ type: { type: String }, coordinate: [Number]},
+    location:{ type: { type: String }, coordinates: [Number]},
     address: { type: String }
   }],
   url: String
 })
 
-storeSchema.index({location: '2dsphere'})
+storeSchema.index({"places.location": '2dsphere'})
 
 const Store = mongoose.model('Store', storeSchema)
 

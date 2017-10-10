@@ -14,16 +14,18 @@ const giftSchema = new Schema({
   },
   price: {
     type: Number,
-    reuquired: true
+    required: true
   },
   imgPath: {
     type: String,
     required: true
   },
   tags: [String],
-
-  store: { type: Schema.Types.ObjectId, ref: "Store" }
-});
+  
+  store:{ type: Schema.Types.ObjectId,
+          ref: "Store"
+  }
+})
 
 const Gift = mongoose.model("Gift", giftSchema);
 module.exports = Gift;

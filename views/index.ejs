@@ -1,5 +1,33 @@
+<h1>Bienvenue </h1>
+<div>
+  <form action="/" method="get">
+    <label>Categories
+      <!-- <input list="categorie" name="categorie" type="text"> -->
+      <select name="categorie">
+        <option value="enfant">Enfant
+        <option value="adulte">Adulte
+        <option value="cuisine">Cuisine
+        <option value="bien-être">Bien-être
+        <option value="apprentissage">apprentissage
+        <option value="maison">maison
+        <option value="voyage">voyage
+        <option value="jeux">jeux
+          <option value="jeu de plein air">jeu de plein air
+      </select>
+    </label>
+    <label>Budget
+      <!-- <input list="budget" name="budget" type="text" align="middle"> -->
+      <!-- <select name="budget">
+        <option>0 - 19 €
+        <option>20 - 39 €
+        <option>40€ +
+      </select>
+    </label> -->
+    <button type="submit">Rechercher</button>
+  </form>
+</div>
 
-<h1>Bienvenue</h1>
+
 
 <div class= "gift">
   <% if (allGifts.length > 0) { %>
@@ -20,4 +48,3 @@
    <% }) %>
   <% } %>
 </div>
-<a href="/logout">Logout</a>
