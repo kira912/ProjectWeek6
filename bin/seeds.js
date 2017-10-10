@@ -108,7 +108,7 @@ const giftData = [
     price: 32,
     imgPath:
       "https://cache.natureetdecouvertes.com/Medias/Images/Articles/61156100/650?frz-v114",
-    tags: ["adulte, cuisine"],
+    tags: ["adulte", "cuisine"],
     storeName: "Nature et Découvertes"
   },
   {
@@ -118,7 +118,7 @@ const giftData = [
     price: 18,
     imgPath:
       "https://cache.natureetdecouvertes.com/Medias/Images/Articles/15131310/650?frz-v114",
-    tags: ["adulte, bien-être"],
+    tags: ["adulte", "bien-être"],
     storeName: "Nature et Découvertes"
   },
   {
@@ -128,7 +128,7 @@ const giftData = [
     price: 29.95,
     imgPath:
       "https://cache.natureetdecouvertes.com/Medias/Images/Articles/30152200/650?frz-v114",
-    tags: ["enfant, apprentissage"],
+    tags: ["enfant", "apprentissage"],
     storeName: "Nature et Découvertes"
   },
   {
@@ -137,7 +137,7 @@ const giftData = [
     price: 34.95,
     imgPath:
       "https://cache.natureetdecouvertes.com/Medias/Images/Articles/30154740/650?frz-v114",
-    tags: ["enfant, apprentissage"],
+    tags: ["enfant", "apprentissage"],
     storeName: "Nature et Découvertes"
   },
   {
@@ -147,7 +147,7 @@ const giftData = [
     price: 17,
     imgPath:
       "https://cache.natureetdecouvertes.com/Medias/Images/Articles/30153900/30153900-5.jpg?width=650&height=650",
-    tags: ["enfant, jeu de plein air"],
+    tags: ["enfant", "jeu de plein air"],
     storeName: "Nature et Découvertes"
   },
   {
@@ -167,7 +167,7 @@ const giftData = [
     price: 24.95,
     imgPath:
       "https://www.lachaiselongue.fr/media/catalog/product/cache/1/image/325x/9df78eab33525d08d6e5fb8d27136e95/2/9/29-C1-033_1.jpg",
-    tags: ["adulte, maison"],
+    tags: ["adulte", "maison"],
     storeName: "La chaise longue"
   },
   {
@@ -177,7 +177,7 @@ const giftData = [
     price: 29.95,
     imgPath:
       "https://www.lachaiselongue.fr/media/catalog/product/cache/1/image/325x/9df78eab33525d08d6e5fb8d27136e95/3/6/36-1k-002_1.jpg",
-    tags: ["adulte, cuisine"],
+    tags: ["adulte", "cuisine"],
     storeName: "La chaise longue"
   },
   {
@@ -187,7 +187,7 @@ const giftData = [
     price: 14.95,
     imgPath:
       "https://www.lachaiselongue.fr/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/3/6/36-1v-503_4.jpg",
-    tags: ["adulte, voyage"],
+    tags: ["adulte", "voyage"],
     storeName: "La chaise longue"
   },
   {
@@ -197,7 +197,7 @@ const giftData = [
     price: 11.29,
     imgPath:
       "https://s3.thcdn.com/productimg/480/480/11329156-1624421349498666.jpg",
-    tags: ["enfant, adulte, jeux"],
+    tags: ["enfant", "adulte", "jeux"],
     storeName: "Zavvi"
   },
   {
@@ -207,7 +207,7 @@ const giftData = [
     price: 49.9,
     imgPath:
       "https://images-na.ssl-images-amazon.com/images/I/71Ffqbaub6L._SL1200_.jpg",
-    tags: ["adulte, cuisine"],
+    tags: ["adulte", "cuisine"],
     storeName: "Amazon"
   },
   {
@@ -217,7 +217,7 @@ const giftData = [
     price: 18.9,
     imgPath:
       "http://place-o-gout.com/469-thickbox_default/coffret-autour-de-la-tomate.jpg",
-    tags: ["adulte, cuisine"],
+    tags: ["adulte", "cuisine"],
     storeName: "place-o-gout"
   },
   {
@@ -244,7 +244,7 @@ const giftData = [
     price: 27.95,
     imgPath:
       "https://www.cadeauxfolies.fr/media/catalog/product/cache/3/image/1398x/9df78eab33525d08d6e5fb8d27136e95/c/a/candy_grabber_1.jpg",
-    tags: ["enfants"],
+    tags: ["enfant"],
     storeName: "Cadeaux folies"
   }
 ];
