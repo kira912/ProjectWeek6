@@ -11,5 +11,17 @@
   <p>
     <%= gift.description %>
   </p>
+
+  <a href ="<%= gift.store.url %>" target="_blank">
+    <%= gift.store.name %>
+  </a>
+
+  <ul>
+    <% for(var i =0; i < gift.store.places.length; i++){ %>
+      <li>
+      <%= gift.store.places[i].address %>
+    </li>
+    <% } %>
+  </ul>
 </div>
 </div>

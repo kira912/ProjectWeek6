@@ -17,14 +17,25 @@ router.get('/', (req, res, next) => {
 router.get('/gifts/:id', (req, res, next) => {
   const giftId = req.params.id
 
-  Gift.findById(giftId, (err, gift) => {
-    if(err) {
-      return next(err)
-    }
-    res.render('giftDetail', {
-      gift : gift
+  Gift.findById(giftId)
+    .populate("store")
+    .exec((err, gift) => {
+      if(err) {
+        return next(err)
+      }
+      res.render('giftDetail', {
+        gift : gift
+      })
     })
-  })
+
+  // Gift.findById(giftId, (err, gift) => {
+  //   if(err) {
+  //     return next(err)
+  //   }
+  //   res.render('giftDetail', {
+  //     gift : gift
+  //   })
+  // })
 })
 
 

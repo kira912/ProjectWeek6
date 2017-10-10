@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 20px "Tahoma", Helvetica, Arial, sans-serif;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -27,7 +27,7 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 auto;
+
 }
 
 .gift-display {

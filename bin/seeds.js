@@ -4,6 +4,9 @@ mongoose.connect("mongodb://localhost/idkdo", { useMongoClient: true });
 const Gift = require("../models/gift");
 const Store = require("../models/store");
 
+
+///////// DATABASE STORES ////////////
+
 const storeData = [
   {
     name: "Nature et Découvertes",
@@ -28,8 +31,43 @@ const storeData = [
           coordinates: [48.8582877, 2.356079799999975]
         },
         address: "20 bis rue Sainte Croix de la Bretonnerie 75004 Paris"
-      }
-    ]
+      },
+      {
+        location: {
+          type: "Point",
+          coordinates: [48.862578, 2.334970300000009]
+        },
+          address: "carrousel du louvre"
+        },
+        {
+        location: {
+          type: "Point",
+          coordinates: [48.8483148, 2.282590300000038]
+        },
+          address: "Centre Commercial Beaugrenelle 75015 Paris"
+        },
+        {
+        location: {
+          type: "Point",
+          coordinates: [48.8429768, 2.3228288999999904]
+        },
+          address: "Centre commercial Montparnasse"
+        },
+        {
+        location: {
+          type: "Point",
+          coordinates: [48.8297947, 2.3550950999999714]
+        },
+          address: "Centre Commercial Italie 2 75013 Paris"
+        },
+        {
+        location: {
+          type: "Point",
+          coordinates: [48.8331947, 2.3863824000000022]
+        },
+          address: "Bercy Village, 8-10 Cour Saint-Emilion, 75012 Paris"
+        }],
+        url: "https://www.natureetdecouvertes.com/"
   },
   {
     name: "La chaise longue",
@@ -40,65 +78,77 @@ const storeData = [
           coordinates: [48.8640439, 2.3402509999999666]
         },
         address: "30 Rue Croix des Petits Champs, 75001 Paris"
-      }
-    ]
+      },
+      {
+        location: {
+          type: "Point",
+          coordinates: [48.8702555, 2.327658000000042]
+        },
+        address: "2 Rue de Sèze, 75009 Paris"
+      },
+      {
+        location: {
+          type: "Point",
+          coordinates: [48.86068239999999, 2.3448287999999593]
+        },
+        address: "22 Rue du Pont Neuf, 75001 Paris"
+      },
+      {
+        location: {
+          type: "Point",
+          coordinates: [48.87625610000001, 2.325327199999947]
+        },
+        address: "Espace Commercial De La Gare Saint Lazare, 75008 Paris"
+      },
+      {
+        location: {
+          type: "Point",
+          coordinates: [48.8575555, 2.352027200000066]
+        },
+        address: "68 Rue de Rivoli, 75001 Paris"
+      },
+      {
+        location: {
+          type: "Point",
+          coordinates: [48.8840996, 2.3395464000000175]
+        },
+        address: "91 Rue des Martyrs, 75018 Paris"
+      },
+      {
+        location: {
+          type: "Point",
+          coordinates: [48.857824, 2.274060200000008]
+        },
+        address: "5 Avenue Mozart, 75016 Paris"
+      },
+    ],
+    url : "https://www.lachaiselongue.fr/"
+  },
+  {
+    name : "Zavvi",
+      url: "https://fr.zavvi.com"
+  },
+  {
+    name : "Amazon",
+      url: "https://www.amazon.fr/"
+  },
+  {
+    name : "place-o-gout",
+      url: "http://place-o-gout.com/"
+  },
+  {
+    name : "Magasin du Chef",
+      url: "https://www.magasinduchef.com/"
+  },
+  {
+    name : "Cadeaux folies",
+      url: "https://www.cadeauxfolies.fr/"
   }
-  //
-  // {
-  //   name: "Nature et Découvertes",
-  //   places: [{
-  //     location: {
-  //       type: "Point",
-  //       coordinates: [48.862578, 2.334970300000009]
-  //     },
-  //     address: "carrousel du louvre"
-  //   }]
-  // },
-  //
-  // {
-  //   name: "Nature et Découvertes",
-  //   places: [{
-  //     location: {
-  //       type: "Point",
-  //       coordinates: [48.8483148, 2.282590300000038]
-  //     },
-  //     address: "Centre Commercial Beaugrenelle 75015 Paris"
-  //   }]
-  // },
-  //
-  // {
-  //  name: "Nature et Découvertes",
-  //  places: [{
-  //    location: {
-  //      type: "Point",
-  //      coordinates: [48.8429768, 2.3228288999999904]
-  //    },
-  //    adress: "Centre commercial Montparnasse"
-  //  }]
-  // },
-  //
-  // {
-  //   name: "Nature et Découvertes",
-  //   places: [{
-  //     location: {
-  //       type: "Point",
-  //       coordinates: [48.8297947, 2.3550950999999714]
-  //     },
-  //     adress: "Centre Commercial Italie 2 75013 Paris"
-  //   }]
-  // },
-  //
-  // {
-  //   name: "Nature et Découvertes",
-  //   places: [{
-  //     location: {
-  //       type: "Point",
-  //       coordinates: [48.8331947, 2.3863824000000022]
-  //     },
-  //     adress: "Bercy Village"
-  //   }]
-  // }
-];
+]
+
+
+///////////// DATABASE GIFTS //////////////////
+
 
 const giftData = [
   {
@@ -233,21 +283,24 @@ const giftData = [
     name: "Tapis de jeux de voitures",
     description: "Tapis résistant (0.95m x 2m)",
     price: 20.9,
-    imgPath: "https://images-na.ssl-images-amazon.com/images/I/61CdrdhBIML.jpg",
+    imgPath:
+    "https://images-na.ssl-images-amazon.com/images/I/61CdrdhBIML.jpg",
     tags: ["enfant"],
     storeName: "Amazon"
   },
   {
     name: "Distributeur de bonbons",
-    description:
-      "Distributeur 'Candy Grabber' pour vraiment mériter ses bonbons",
+    description: "Distributeur 'Candy Grabber' pour vraiment mériter ses bonbons",
     price: 27.95,
     imgPath:
-      "https://www.cadeauxfolies.fr/media/catalog/product/cache/3/image/1398x/9df78eab33525d08d6e5fb8d27136e95/c/a/candy_grabber_1.jpg",
+    "https://www.cadeauxfolies.fr/media/catalog/product/cache/3/image/1398x/9df78eab33525d08d6e5fb8d27136e95/c/a/candy_grabber_1.jpg",
     tags: ["enfants"],
     storeName: "Cadeaux folies"
   }
 ];
+
+
+//////////// GESTION DE LA DATABASE /////////////////
 
 Gift.remove({}, err => {
   Store.remove({}, err => {
