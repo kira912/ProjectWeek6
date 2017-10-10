@@ -1,4 +1,32 @@
-<h1>Welcome to the </h1>
+<h1>Bienvenu dans la Fabrique à cadeaux ! </h1>
+
+<form action="/" method="post">
+  <label>Categories
+    <input list="categorie" type="text">
+    <datalist id="categorie">
+      <option value="Enfant">
+      <option value="Adulte">
+      <option value="Cuisine">
+      <option value="bien-être">
+      <option value="apprentissage">
+      <option value="maison">
+      <option value="voyage">
+      <option value="jeux">
+      <option value="">
+    </datalist>
+  </label>
+  <label>Budget
+    <input list="budget" type="text" align="middle">
+    <datalist id="budget">
+      <option value="0 - 19 €">
+      <option value="20 - 39 €">
+      <option value="40€ +">
+    </datalist>
+  </label>
+</form>
+
+
+
 
 <div class= "gift">
   <% if (allGifts.length > 0) { %>
