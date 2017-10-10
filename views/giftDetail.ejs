@@ -1,13 +1,11 @@
 
-<div id="container">
+<div class="container">
 
   <img src="<%= gift.imgPath %>" alt="gift picture" id="detail-picture";/>
 
-  <div id= "description">
-  <h1><%= gift.name %></h1>
-  <h2>
-    <%= gift.price %> €
-  </h2>
+  <div class= "description">
+  <h2><%= gift.name %> - <%= gift.price %> €</h2>
+
   <p>
     <%= gift.description %>
   </p>
@@ -16,12 +14,22 @@
     <%= gift.store.name %>
   </a>
 
-  <ul>
+  <!-- <ul>
     <% for(var i =0; i < gift.store.places.length; i++){ %>
       <li>
       <%= gift.store.places[i].address %>
     </li>
     <% } %>
-  </ul>
+  </ul> -->
+
+  <iframe
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDdE1Uze4cUL9zFAaoqPbkV-2KpOkb0m2g
+      &q=Nature+et+découvertes,Paris+France" allowfullscreen>
+  </iframe>
+
 </div>
+
 </div>
