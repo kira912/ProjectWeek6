@@ -1,4 +1,4 @@
-<h1>Bienvenu dans la Fabrique à cadeaux ! </h1>
+<h1>Bienvenue </h1>
 
 <form action="/" method="post">
   <label>Categories
@@ -31,18 +31,19 @@
 <div class= "gift">
   <% if (allGifts.length > 0) { %>
    <% allGifts.forEach((gift) => { %>
+
+    <div class="gift-display"
     <p>
       <%= gift.name %>
     </p>
-    <img src="<%= gift.imgPath %>" alt="gift picture" width="20%" />
+    <img src="<%= gift.imgPath %>" alt="gift picture" width="100%" />
     <p>
       <%= gift.price %> €
     </p>
     <form action="/gifts/<%= gift._id %>" method="get">
       <input type="submit" value="Voir cadeau">
     </form>
+  </div>
    <% }) %>
   <% } %>
 </div>
-
-<a href="/logout">Logout</a>

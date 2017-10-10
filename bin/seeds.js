@@ -114,7 +114,7 @@ const giftData = [
   {
     name: "Oreiller de bain",
     description:
-      "Oreiller à accroché dans la baignoire grace a des ventouses pour un confort optimal",
+      "Oreiller à accrocher dans la baignoire grâce à des ventouses pour un confort optimal",
     price: 18,
     imgPath:
       "https://cache.natureetdecouvertes.com/Medias/Images/Articles/15131310/650?frz-v114",
@@ -133,7 +133,7 @@ const giftData = [
   },
   {
     name: "J'apprends le temps",
-    description: "Jeu evolutif pour apprendre à lire l'heure",
+    description: "Jeu évolutif pour apprendre à lire l'heure",
     price: 34.95,
     imgPath:
       "https://cache.natureetdecouvertes.com/Medias/Images/Articles/30154740/650?frz-v114",
@@ -153,7 +153,7 @@ const giftData = [
   {
     name: "Mon premier jardin",
     description:
-      "Mini serre pour cultiver légumes fleurs et plantes aromatiques",
+      "Mini serre pour cultiver légumes, fleurs et plantes aromatiques",
     price: 11.95,
     imgPath:
       "https://cache.natureetdecouvertes.com/Medias/Images/Articles/91038400/4FEA3B30186D0FFE7A0BE69F753FAB76.jpg?width=650&height=650",
@@ -161,9 +161,9 @@ const giftData = [
     storeName: "Nature et Découvertes"
   },
   {
-    name: "Coffret à outils'Miss bricolage'",
+    name: "Coffret à outils 'Miss Bricolage'",
     description:
-      "Coffret à outils comprennant 5 tournevis, 1 marteau, 1 pince, 1 niveau à bulle et 1 mètre mesureur",
+      "Coffret à outils comprenant 5 tournevis, 1 marteau, 1 pince, 1 niveau à bulle et 1 mètre mesureur",
     price: 24.95,
     imgPath:
       "https://www.lachaiselongue.fr/media/catalog/product/cache/1/image/325x/9df78eab33525d08d6e5fb8d27136e95/2/9/29-C1-033_1.jpg",
@@ -173,7 +173,7 @@ const giftData = [
   {
     name: "Trancheuse à saucisson",
     description:
-      "guillotine manuelle à saucisson pour des tranches fines et régulières",
+      "Guillotine manuelle à saucisson pour des tranches fines et régulières",
     price: 29.95,
     imgPath:
       "https://www.lachaiselongue.fr/media/catalog/product/cache/1/image/325x/9df78eab33525d08d6e5fb8d27136e95/3/6/36-1k-002_1.jpg",
@@ -181,7 +181,7 @@ const giftData = [
     storeName: "La chaise longue"
   },
   {
-    name: "Pèse bagages 'Just go'",
+    name: "Pèse-bagages 'Just go'",
     description:
       "Permet de peser sa valise au préalable pour éviter les mauvaises surprises au comptoir d'enregistrement (poids maximum 40kgs)",
     price: 14.95,
@@ -231,7 +231,7 @@ const giftData = [
   },
   {
     name: "Tapis de jeux de voitures",
-    description: "Tapis resistant (0.95m x 2m)",
+    description: "Tapis résistant (0.95m x 2m)",
     price: 20.9,
     imgPath: "https://images-na.ssl-images-amazon.com/images/I/61CdrdhBIML.jpg",
     tags: ["enfant"],
