@@ -11,7 +11,7 @@ const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 const flash = require('connect-flash')
-// const expressLayouts = require("express-ejs-layouts");
+const expressLayouts = require("express-ejs-layouts");
 
 const User = require('./models/user')
 const Gift = require('./models/gift')
@@ -26,7 +26,7 @@ console.log("express started")
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('layout', 'layouts/main-layout')
-app.locals.title = 'La boutqiue a cadeaux'
+app.locals.title = 'La boutique à cadeaux'
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -34,6 +34,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(expressLayouts);
 
 app.use(session({
   secret: 'idkdo',

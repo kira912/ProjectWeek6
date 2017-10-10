@@ -1,16 +1,36 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px "Tahoma", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
 
-#container {
- display: inline;
+.container {
+ display: flex;
+ flex-direction: row;
+ height: 500px;
 }
 
-#description {
-  width: 20%;
+.description {
+  width: 40%;
+  height: 40%;
+  margin: 10% 0 5% 5%;
+}
+
+#detail-picture {
+  width: 450px;;
+}
+
+.gift {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.gift-display {
+  width: 30%;
+  text-align: center;
 }
