@@ -11,6 +11,7 @@ const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 const flash = require('connect-flash')
+// const expressLayouts = require("express-ejs-layouts");
 
 const User = require('./models/user')
 const Gift = require('./models/gift')
@@ -89,7 +90,7 @@ passport.use(
 )
 
 passport.use(
-  'local-login', 
+  'local-login',
   new LocalStrategy({
     usernameField: 'email',
   },
