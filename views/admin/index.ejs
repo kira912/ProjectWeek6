@@ -7,7 +7,7 @@
     <% if (allGifts.length > 0) { %>
       <% allGifts.forEach((gift) => { %>
         <li>
-          <a href="/admin/<%= gift._id %>/edit"><%= gift.name %></a>
+          <a href="/admin/<%= gift._id %>/show"><%= gift.name %></a>
         </li>
       <% }) %>
     <% } %>

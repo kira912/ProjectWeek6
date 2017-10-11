@@ -9,6 +9,7 @@ const adminController = express.Router()
 
 const Gift = require('../models/gift')
 const User = require('../models/user')
+const Store = require('../models/store')
  
 adminController.get('/index', checkRoles('Admin'), (req, res) => {
   Gift.find({}, (err, allGifts) => {
@@ -22,6 +23,21 @@ adminController.get('/index', checkRoles('Admin'), (req, res) => {
   })
 })
 
+adminController.get('/:id/show', (req, res, next) => {
+  const giftId = req.params.id
+
+  Gift.findById(giftId)
+    .populate("store")
+    .exec((err, gift) => {
+      if (err) {
+        return next(err)
+      }
+      res.render('admin/show', {
+        gift
+      })
+    })
+})
+
 adminController.get('/:id/edit', (req, res, next) => {
   const giftId = req.params.id
 
@@ -30,6 +46,19 @@ adminController.get('/:id/edit', (req, res, next) => {
       return next(err)
     }
     res.render('admin/edit', {
+      gift
+    })
+  })
+})
+
+adminController.get('/:id/delete', (req, res, next) => {
+  const giftId = req.params.id
+
+  Gift.findById(giftId, (err, gift) => {
+    if (err) {
+      return next(err)
+    }
+    res.render('admin/delete', {
       gift
     })
   })
@@ -72,6 +101,17 @@ adminController.post('/:id/edit', upload.single('photo'), (req, res, next) => {
       return next(err)
     }
     res.redirect(`/admin/index`)
+  })
+})
+
+adminController.post('/:id/delete', (req, res, next) => {
+  const giftId = req.params.id
+
+  Gift.findByIdAndRemove(giftId, (err) => {
+    if (err) {
+      return next(err)
+    }
+    res.render('admin/index')
   })
 })
 

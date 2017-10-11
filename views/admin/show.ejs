@@ -1,0 +1,21 @@
+
+<div class="container">
+    
+      <img src="<%= gift.imgPath %>" alt="gift picture" id="detail-picture" />
+    
+      <div class= "description">
+      <h2><%= gift.name %> - <%= gift.price %> €</h2>
+    
+      <p>
+        <%= gift.description %>
+      </p>
+    
+     
+      <form action="/admin/<%= gift._id %>/edit" method="get">
+        <button>Editer cadeau</button>
+      </form>
+
+      <form action="/admin/<%= gift._id %>/delete" method="get">
+        <button>Supprimer cadeau</button>
+      </form>
+</div>
