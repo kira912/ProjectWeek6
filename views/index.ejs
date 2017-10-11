@@ -2,8 +2,8 @@
 <div>
   <form action="/" method="get">
     <label>Categories
-      <!-- <input list="categorie" name="categorie" type="text"> -->
       <select name="categorie">
+        <option>
         <option value="enfant">Enfant
         <option value="adulte">Adulte
         <option value="cuisine">Cuisine
@@ -15,14 +15,32 @@
           <option value="jeu de plein air">jeu de plein air
       </select>
     </label>
-    <label>Budget
-      <!-- <input list="budget" name="budget" type="text" align="middle"> -->
-      <!-- <select name="budget">
-        <option>0 - 19 €
-        <option>20 - 39 €
-        <option>40€ +
+    <label>Budget Minimum
+      <select name="budgetMin">
+        <option></option>
+        <% for (var i = 10; i <=30; i+= 10) { %>
+          <option
+           value="<%= i %>"
+           <%= budgetMinPreviouslySelected == i ? "selected" : "" %>
+           >
+           <%= i %>€
+          </option>
+        <% } %>
       </select>
-    </label> -->
+    </label> 
+    <label>Budget Maximum
+        <select name="budgetMax">
+          <option></option>
+          <% for (var i = 10; i <= 40; i+=10) { %>
+              <option
+                value="<%= i %>"
+                <%= budgetMaxPreviouslySelected == i ? "selected" : "" %>
+              >
+                <%= i %>€
+              </option>
+          <% } %>
+       </select>
+     </label> 
     <button type="submit">Rechercher</button>
   </form>
 </div>

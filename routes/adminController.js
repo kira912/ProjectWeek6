@@ -2,12 +2,12 @@ const express = require('express')
 const passport = require('passport')
 const ensureLogin = require('connect-ensure-login')
 
-const siteController = express.Router()
+const adminController = express.Router()
 
 const User = require('../models/user')
-
-siteController.get('/admin/index', checkAdmin, (req, res) => {
-  res.render('/index', {
+/* 
+adminController.get('/admin/index', checkAdmin, (req, res) => {
+  res.render('admin/index', {
     user: req.user
   })
 })
@@ -26,5 +26,5 @@ function checkRoles(role) {
 
 const checkAdmin = checkRoles('Admin')
 const checkClient = checkRoles('Client')
-const checkGuest = checkRoles('Guest')
-module.exports = siteController
+const checkGuest = checkRoles('Guest') */
+module.exports = adminController
