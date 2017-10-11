@@ -2,12 +2,12 @@ const express = require('express')
 const passport = require('passport')
 const multer = require('multer')
 const ensureLogin = require('connect-ensure-login')
-const Gift = require('../models/gift')
 
 const upload = multer({dest: './public/uploads'})
 
 const adminController = express.Router()
 
+const Gift = require('../models/gift')
 const User = require('../models/user')
  
 adminController.get('/index', checkRoles('Admin'), (req, res) => {
@@ -32,6 +32,28 @@ adminController.get('/:id/edit', (req, res, next) => {
     res.render('admin/edit', {
       gift
     })
+  })
+})
+
+adminController.get('/new', (req, res, next) => {
+  res.render('admin/new')
+})
+
+adminController.post('/new', upload.single('photo'), (req, res, next) => {
+  const newGift = new Gift({
+    imgPath: `/uploads/${req.file.filename}`,
+    name: req.body.name,
+    price: req.body.price,
+    tags: req.body.tags,
+    description: req.body.description,
+  })
+
+  newGift.save((err) => {
+    if (err) {
+      res.render('admin/new')
+    } else {
+      res.redirect('index')
+    }
   })
 })
 

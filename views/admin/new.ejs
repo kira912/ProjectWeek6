@@ -1,0 +1,30 @@
+<h2>Nouveau cadeau</h2>
+
+<form action="/admin/new" method="post" enctype="multipart/form-data">
+  <label>Photo du cadeau <br>
+    <input type="file" name="photo">
+  </label>
+  <br><br>
+
+  <label>Nom du cadeau <br>
+    <input type="text" name="name">
+  </label>
+  <br><br>
+
+  <label>Prix du cadeau <br>
+    <input type="text" name="price">
+  </label>
+  <br><br>
+
+  <label>Catégories <br>
+    <input type="text" name="tags">
+  </label>
+  <br><br>
+
+  <label>Description du cadeau <br>
+    <textarea type="text" name="description">
+    </textarea>
+  </label>
+
+  <button type="submit">Créer cadeau</button>
+</form>
