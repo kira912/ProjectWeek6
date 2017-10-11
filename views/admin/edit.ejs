@@ -1,0 +1,29 @@
+<h2>Editer un cadeau</h2>
+
+<form action="/admin/<%= gift._id %>/edit" method="post" enctype="multipart/form-data">
+  <label>Photo du cadeau <br>
+    <img src="<%= gift.imgPath %>" alt="photo cadeau" width="20%" />
+    <input type="file" name="photo" />  
+  </label>
+  <br><br>
+
+  <label>Nom du cadeau <br>
+    <input type="text" name="name" value="<%= gift.name %>">
+  </label>
+  <br><br>
+
+  <label>Prix du cadeau <br>
+    <input type="text" name="price" value="<%= gift.price %>">
+  </label>
+  <br><br>
+
+  <label>Description du cadeau <br>
+    <textarea type="text" name="description" value="<%= gift.description %>">
+    </textarea>
+  </label>
+  <br><br>
+
+  <button type="submit">Editer</button>
+
+
+</form>
