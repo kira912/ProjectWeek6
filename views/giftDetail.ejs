@@ -14,6 +14,14 @@
     <%= gift.store.name %>
   </a>
 
+  <% if(!isBookmarked) { %>
+  <form action="/private/bookMark/<%= gift._id %>" method="post">
+    <button type="submit">Ajouter aux favoris</button>
+  </form>
+  <% } else { %>
+    <button type="submit">Supprimer des favoris (TODO)</button>
+  <% } %>
+  
   <iframe
     width="600"
     height="450"

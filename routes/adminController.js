@@ -17,7 +17,6 @@ adminController.get('/index', checkRoles('Admin'), (req, res) => {
       return next(err)
     }
     res.render('admin/index', {
-      user: req.user,
       allGifts
     })
   })
@@ -40,7 +39,6 @@ adminController.get('/:id/show', checkRoles('Admin'), (req, res, next) => {
 
 adminController.get('/:id/edit', checkRoles('Admin'), (req, res, next) => {
   const giftId = req.params.id
-  console.log("Debug")
 
   Gift.findById(giftId, (err, gift) => {
     Store.find({}, (err, stores) => {

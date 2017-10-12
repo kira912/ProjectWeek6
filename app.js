@@ -114,9 +114,10 @@ app.use(passport.session())
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Routes
-const index = require('./routes/index')
+const publicController = require('./routes/publicController')
 const authController = require('./routes/authController')
 const adminController = require('./routes/adminController')
+const userController = require('./routes/userController')
 
 app.use((req, res, next) => {
   res.locals.user = req.user;
@@ -124,8 +125,9 @@ app.use((req, res, next) => {
 })
 
 app.use('/', authController)
-app.use('/', index)
+app.use('/', publicController)
 app.use('/admin', adminController)
+app.use('/private', userController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

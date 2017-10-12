@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Gift = require('../models/gift')
+const User = require('../models/user')
 
 
 /* GET home page. */
@@ -47,6 +48,9 @@ router.get('/', (req, res, next) => {
 router.get('/gifts/:id', (req, res, next) => {
   const giftId = req.params.id
 
+  console.log('debug', giftId)
+  console.log("DEBUG req.user", req.user)
+  
   Gift.findById(giftId)
     .populate("store")
     .exec((err, gift) => {
@@ -54,10 +58,27 @@ router.get('/gifts/:id', (req, res, next) => {
         return next(err)
       }
       res.render('giftDetail', {
-        gift 
+        gift,
+        isBookmarked: req.user.bookmarks.indexOf(giftId) !== -1
       })
     })
 })
 
+router.post('/private/bookMark/:giftId', (req, res, next) => {
+  
+    const giftId = req.params.giftId;
+
+    console.log("DEBUG req.user._id", req.user._id)
+  
+  
+    User.findByIdAndUpdate(req.user._id, {
+      $addToSet: {
+        bookmarks: giftId
+      }
+    },
+    (err, user) => {
+      res.redirect('/gifts/'+giftId);
+    })
+  })
 
 module.exports = router;

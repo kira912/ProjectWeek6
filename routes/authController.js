@@ -37,9 +37,7 @@ authController.post('/signup', passport.authenticate('local-signup', {
 
 
 authController.get('/private/home', ensureLoggedIn, (req, res, next) => {
-  res.render('private/home',{
-    user: req.user
-  })
+  res.render('private/home')
 })
 
 module.exports = authController
