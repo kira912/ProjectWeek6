@@ -1,4 +1,16 @@
-<h2>Login if you want to save gifts for later...</h2>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-menu">
+
+    <div class="navbar-start">
+      <a class="navbar-item">
+      Accueil
+      </a>
+    </div>
+
+   </div>
+</nav>
+
+<h1>Login if you want to save gifts for later...</h1>
 
 <% if (message) { %>
     <p>
@@ -6,10 +18,22 @@
     </p>
 <% } %>
 
+
+
 <form action="/login" method="post">
-    <label>Username <br>
-    <input type="text" name="email" placeholder="email"></label>
-    <br><br>
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+      <span class="icon is-small is-left">
+        <i class="fa fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fa fa-warning"></i>
+      </span>
+    </div>
+    <p class="help is-danger">This email is invalid</p>
+  </div>
 
     <label>Password <br>
     <input type="password" name="password" placeholder="password"></label>
