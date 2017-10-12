@@ -6,7 +6,7 @@ const storeSchema = new Schema({
     type: String,
     required: true,
   },
-  query: [String],
+  query: String,
     url: String
 })
 

@@ -10,12 +10,12 @@ const Store = require("../models/store");
 const storeData = [
   {
     name: "Nature et Découvertes",
-    query: "Nature+et+découvertes,Paris+France",
+    query: "https://www.google.com/maps/embed/v1/search?key=AIzaSyDdE1Uze4cUL9zFAaoqPbkV-2KpOkb0m2g&q=Nature+et+découvertes,Paris+France",
     url: "https://www.natureetdecouvertes.com/"
   },
   {
     name: "La chaise longue",
-    query: "La+chaise+longue,Paris+France",
+    query: "https://www.google.com/maps/embed/v1/search?key=AIzaSyDdE1Uze4cUL9zFAaoqPbkV-2KpOkb0m2g&q=La+chaise+longue,Paris+France",
     url : "https://www.lachaiselongue.fr/"
   },
   {
@@ -51,7 +51,7 @@ const giftData = [
       "Basilic citron thai et basilic fin vert / Ail des ours / Cerfeuil / Persil géant d'Italie / Thym / Coriandre",
     price: 32,
     imgPath:
-      "public/images/aromates.jpg",
+      "/images/aromates.jpg",
     tags: ["adulte", "cuisine"],
     storeName: "Nature et Découvertes"
   },
@@ -61,7 +61,7 @@ const giftData = [
       "Oreiller à accrocher dans la baignoire grâce à des ventouses pour un confort optimal",
     price: 18,
     imgPath:
-      "public/images/oreiller.jpg",
+      "/images/oreiller.jpg",
     tags: ["adulte", "bien-être"],
     storeName: "Nature et Découvertes"
   },
@@ -71,7 +71,7 @@ const giftData = [
       "Calendrier avec pièces Velcro pour apprendre les jours, mois et saisons",
     price: 29.95,
     imgPath:
-      "calendrier.jpg",
+      "/images/calendrier.jpg",
     tags: ["enfant", "apprentissage"],
     storeName: "Nature et Découvertes"
   },
@@ -80,7 +80,7 @@ const giftData = [
     description: "Jeu évolutif pour apprendre à lire l'heure",
     price: 34.95,
     imgPath:
-      "public/images/temps.jpg",
+      "/images/temps.jpg",
     tags: ["enfant", "apprentissage"],
     storeName: "Nature et Découvertes"
   },
@@ -90,7 +90,7 @@ const giftData = [
       "Permet de surprendre les bruits de la nature ou de jouer a l'espion",
     price: 17,
     imgPath:
-      "public/images/amplif.jpg",
+      "/images/amplif.jpg",
     tags: ["enfant", "jeu de plein air"],
     storeName: "Nature et Découvertes"
   },
@@ -100,7 +100,7 @@ const giftData = [
       "Mini serre pour cultiver légumes, fleurs et plantes aromatiques",
     price: 11.95,
     imgPath:
-      "public/images/minijardin.jpg",
+      "/images/minijardin.jpg",
     tags: ["enfant"],
     storeName: "Nature et Découvertes"
   },
@@ -110,7 +110,7 @@ const giftData = [
       "Coffret à outils comprenant 5 tournevis, 1 marteau, 1 pince, 1 niveau à bulle et 1 mètre mesureur",
     price: 24.95,
     imgPath:
-      "public/images/outils.jpg",
+      "/images/outils.jpg",
     tags: ["adulte", "maison"],
     storeName: "La chaise longue"
   },
@@ -120,7 +120,7 @@ const giftData = [
       "Guillotine manuelle à saucisson pour des tranches fines et régulières",
     price: 29.95,
     imgPath:
-      "public/images/guillotine.jpg",
+      "/images/guillotine.jpg",
     tags: ["adulte", "cuisine"],
     storeName: "La chaise longue"
   },
@@ -130,7 +130,7 @@ const giftData = [
       "Permet de peser sa valise au préalable pour éviter les mauvaises surprises au comptoir d'enregistrement (poids maximum 40kgs)",
     price: 14.95,
     imgPath:
-      "public/images/pese.jpg",
+      "/images/pese.jpg",
     tags: ["adulte", "voyage"],
     storeName: "La chaise longue"
   },
@@ -140,7 +140,7 @@ const giftData = [
       "Mini console de poche avec plus de 100 jeux sur écran LCD avec couleurs et son",
     price: 11.29,
     imgPath:
-      "public/images/arcade.jpg",
+      "/images/arcade.jpg",
     tags: ["enfant", "adulte", "jeux"],
     storeName: "Zavvi"
   },
@@ -150,7 +150,7 @@ const giftData = [
       "Appareil à raclette 4 en 1 allient raclette, pierre à griller, grill et crêpière",
     price: 49.9,
     imgPath:
-      "public/images/raclette.jpg",
+      "/images/raclette.jpg",
     tags: ["adulte", "cuisine"],
     storeName: "Amazon"
   },
@@ -160,7 +160,7 @@ const giftData = [
       "Assortiment d'huile d'olive, de moutarde, de sel et de délice à la tomate",
     price: 18.9,
     imgPath:
-      "public/images/coffret-tomate.jpg",
+      "/images/coffret-tomate.jpg",
     tags: ["adulte", "cuisine"],
     storeName: "place-o-gout"
   },
@@ -169,7 +169,7 @@ const giftData = [
     description: "Pot collector de Nutella pour les grands gourmands",
     price: 49.3,
     imgPath:
-      "public/images/nutella.jpg",
+      "/images/nutella.jpg",
     tags: ["cuisine"],
     storeName: "Magasin du Chef"
   },
@@ -178,7 +178,7 @@ const giftData = [
     description: "Tapis résistant (0.95m x 2m)",
     price: 20.9,
     imgPath:
-    "public/images/tapis-voitures.jpg",
+    "/images/tapis-voitures.jpg",
     tags: ["enfant"],
     storeName: "Amazon"
   },
@@ -187,7 +187,7 @@ const giftData = [
     description: "Distributeur 'Candy Grabber' pour vraiment mériter ses bonbons",
     price: 27.95,
     imgPath:
-      "public/images/distributeur-bonbons.jpg",
+      "/images/distributeur-bonbons.jpg",
     tags: ["enfant"],
     storeName: "Cadeaux folies"
   }
