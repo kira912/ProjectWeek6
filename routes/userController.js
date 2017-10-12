@@ -10,6 +10,7 @@ const User = require('../models/user')
 userController.get('/bookMark', ensureLoggedIn, (req, res, next) => {
   const userId = req.params.id
   
+  console.log("DEBUG user.bookmarks",req.user)
   User.findById(userId, (err, gifts) => {
     if (err) {
       return next(err)

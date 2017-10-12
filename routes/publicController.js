@@ -48,7 +48,6 @@ router.get('/', (req, res, next) => {
 router.get('/gifts/:id', (req, res, next) => {
   const giftId = req.params.id
 
-  console.log('debug', giftId)
   console.log("DEBUG req.user", req.user)
   
   Gift.findById(giftId)

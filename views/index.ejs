@@ -37,7 +37,7 @@
         <option value="maison">maison</option>
         <option value="voyage">voyage</option>
         <option value="jeux">jeux</option>
-          <option value="jeu de plein air">jeu de plein air</option>
+        <option value="jeu de plein air">jeu de plein air</option>
       </select>
     </label>
     <label>Budget Minimum
@@ -85,7 +85,7 @@
       <%= gift.price %> €
     </p>
     <form action="/gifts/<%= gift._id %>" method="get">
-      <input type="submit" value="Voir cadeau">
+      <button type="submit">Voir cadeau</button>
     </form>
   </div>
    <% }) %>
