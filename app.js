@@ -116,6 +116,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Routes
 const index = require('./routes/index')
 const authController = require('./routes/authController')
+const adminController = require('./routes/adminController')
 
 app.use((req, res, next) => {
   res.locals.user = req.user;
@@ -124,6 +125,7 @@ app.use((req, res, next) => {
 
 app.use('/', authController)
 app.use('/', index)
+app.use('/admin', adminController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

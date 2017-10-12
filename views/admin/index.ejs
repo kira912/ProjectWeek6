@@ -1,5 +1,23 @@
+<h1>Panneau de contrôle Administrateur</h1>
+
 <h2>Editer cadeau</h2>
 
-<form action="/admin/index" method="post">
-  
+<div>
+  <ul>
+    <% if (allGifts.length > 0) { %>
+      <% allGifts.forEach((gift) => { %>
+        <li>
+          <a href="/admin/<%= gift._id %>/show"><%= gift.name %></a>
+        </li>
+      <% }) %>
+    <% } %>
+  </ul>
+</div>
+
+<form action="/admin/new" method="get">
+  <button type="submit">Ajouter un cadeau</button>
+</form>
+
+<form action="/logout" method="get">
+  <button type="submit">Logout</button>
 </form>

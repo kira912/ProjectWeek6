@@ -1,0 +1,8 @@
+<p>Êtes vous sûr de vouloir supprimer "<%= gift.name %>"</p>
+
+<form action="/admin/<%= gift.id %>/delete" method="post">
+  <button type="submit">Oui</button>
+</form>
+<form action="/admin/index" method="get">
+  <button type="submit">Non</button>
+</form>

@@ -7,18 +7,37 @@ const Gift = require('../models/gift')
 /* GET home page. */
 router.get('/', (req, res, next) => {
   const catVal =  req.query.categorie
-  const budgetVal = req.query.budget
- 
+  var budgetMin = req.query.budgetMin
+  var budgetMax = req.query.budgetMax
+
+  console.log(budgetMax)
+
   var filter = {};
   if (catVal) {
    filter.tags = catVal;
   }
- 
-  Gift.find(filter, (err, allGifts) => {
+  
+  // filter on price
+  filter.price = {};
+  if(budgetMin) {
+    filter.price.$gt = budgetMin;
+  } 
+  if (budgetMax) {
+    filter.price.$lt = budgetMax;
+  }
+  if (Object.keys(filter.price).length === 0) {
+    delete filter.price;
+  }
+
+  Gift.find(filter,(err, allGifts) => {
     if (err) {
       return next(err)
     }
-    res.render('index',{ allGifts })
+    res.render('index',{
+      allGifts,
+      budgetMinPreviouslySelected: budgetMin,
+      budgetMaxPreviouslySelected: budgetMax,
+    })
   })
  })
  
@@ -38,15 +57,6 @@ router.get('/gifts/:id', (req, res, next) => {
         gift : gift
       })
     })
-
-  // Gift.findById(giftId, (err, gift) => {
-  //   if(err) {
-  //     return next(err)
-  //   }
-  //   res.render('giftDetail', {
-  //     gift : gift
-  //   })
-  // })
 })
 
 
