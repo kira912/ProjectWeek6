@@ -6,14 +6,9 @@ const storeSchema = new Schema({
     type: String,
     required: true,
   },
-  places: [{
-    location:{ type: { type: String }, coordinates: [Number]},
-    address: { type: String }
-  }],
-  url: String
+  query: [String],
+    url: String
 })
-
-storeSchema.index({"places.location": '2dsphere'})
 
 const Store = mongoose.model('Store', storeSchema)
 
