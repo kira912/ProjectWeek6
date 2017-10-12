@@ -29,10 +29,18 @@
   </label>
   <br><br>
 
-  <label>Magasins <br>
-    <input type="text" name="store">
+  <label>Magasins
+    <br>
+    <select name="store">
+      <% for(var i = 0; i < stores.length; i++) { %>
+        <option value="<%= stores[i]._id %>">
+          <%= stores[i].name %>
+        </option>
+        <% } %>
+    </select>
   </label>
-  <br><br>
+  <br>
+  <br>
 
   <button>Créer cadeau</button>
 </form>

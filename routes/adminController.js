@@ -40,7 +40,8 @@ adminController.get('/:id/show', checkRoles('Admin'), (req, res, next) => {
 
 adminController.get('/:id/edit', checkRoles('Admin'), (req, res, next) => {
   const giftId = req.params.id
-  console.log("Debug", req)
+  console.log("Debug")
+
   Gift.findById(giftId, (err, gift) => {
     Store.find({}, (err, stores) => {
       if (err) {
@@ -68,7 +69,14 @@ adminController.get('/:id/delete', checkRoles('Admin'), (req, res, next) => {
 })
 
 adminController.get('/new', checkRoles('Admin'), (req, res, next) => {
-  res.render('admin/new')
+  Store.find({}, (err, stores) => {
+    if (err) {
+      return next(err)
+    }
+    res.render('admin/new', {
+      stores
+    })
+  })
 })
 
 adminController.post('/new', upload.single('photo'), (req, res, next) => {
