@@ -1,40 +1,131 @@
 body {
-  padding: 40px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
 a {
   color: #00B7FF;
 }
 
-.container {
+h1 {
+  font-family: 'Lobster', cursive;
+  color: #ff4f1a;
+  font-size: 50px;
+  margin: 2% 0;
+}
+
+.navbar {
+  background-color: #ff4f1a;
+  height: 60px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-bottom: 5%;
+}
+
+.navbar a {
+  color: white;
+}
+
+.select-cat form {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3%;
+  vertical-align: middle;
+}
+
+.select-cat select, button {
+  width: 50%;
+  margin: 5%;
+  height: 30px;
+  font-size: 13px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.10);
+}
+
+.select-cat button {
+  border-radius: 5px;
+  background-color: #ff4f1a;
+  height: 35px;
+  color: white;
+  font-weight: bold;
+}
+
+.container-details {
  display: flex;
  flex-direction: row;
  height: 500px;
+ margin: 5% 0 0 2%;
 }
 
 .description {
   width: 40%;
   height: 40%;
-  margin: 5% 0 5% 5%;
+  margin: 0 0 5% 2%;
+  text-align: left;
 }
 
 #detail-picture {
-  width: 450px;
+  width: 45%;
 }
 
 .gift {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
 }
 
 .gift-display {
-  width: 30%;
+  width: 28%;
   text-align: center;
+  margin: 2% auto;
+  border: 10px solid #f8f8f8;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 20px;
+  padding: 2%;
+}
+
+.gift-display img {
+  width: 100%;
+}
+
+.gift-display a {
+  color: #2f3335;
+}
+
+h2 {
+font-family: 'Lobster', cursive;
+font-size: 25px;
+margin-bottom: 5%;
 }
 
 iframe {
   margin-top: 2%;
+}
+
+.uptobox {
+  margin-top: 10%;
+}
+
+.box {
+  width: 35%;
+  margin: 5% auto;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.box button {
+  margin: 4% 0;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background: linear-gradient( #0f74af, #1182c4);
+}
+
+.is-info {
+  margin-bottom: 5%;
+}
+
+.admin-button {
+  display: block;
+  margin: auto;
+  width: 25%;
+}
+
+#slider-range, #amount {
+  width: 40%;
+  margin: auto;
 }

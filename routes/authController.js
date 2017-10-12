@@ -22,7 +22,7 @@ authController.get('/logout', ensureLoggedIn, (req, res, next) => {
   res.redirect('/')
 })
 authController.post('/login', passport.authenticate('local-login', {
-  successRedirect: '/private/home',
+  successRedirect: '/',
   failureRedirect: '/login',
   failureFlash: true
 }))

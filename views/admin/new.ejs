@@ -24,13 +24,14 @@
 
 
   <label>Description du cadeau <br>
-    <textarea type="text" name="description">
+    <textarea class="textarea" type="text" name="description">
     </textarea>
   </label>
   <br><br>
 
   <label>Magasins
     <br>
+    <div class="select">
     <select name="store">
       <% for(var i = 0; i < stores.length; i++) { %>
         <option value="<%= stores[i]._id %>">
@@ -39,6 +40,7 @@
         <% } %>
     </select>
   </label>
+</div>
   <br>
   <br>
 

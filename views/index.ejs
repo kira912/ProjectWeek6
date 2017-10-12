@@ -1,34 +1,8 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-menu">
-
-    <div class="navbar-start">
-      <a class="navbar-item" href="/index">
-      Accueil
-      </a>
-      <a class="navbar-item">
-      A propos
-      </a>
-    </div>
-    <a href="/logout">Deconnexion</a>
-    <div class="navbar-end">
-      <a class="navbar-item" href="/login">
-      Connexion
-      </a>
-      <a href="/private/bookMark">Liste</a>
-      <a class="navbar-item" href="/logout">
-      Déconnexion
-      </a>
-    </div>
-   </div>
-</nav>
-
-
-<h1>Bienvenue </h1>
-<div>
+<div class="select-cat">
   <form action="/" method="get">
-    <label>Categories
-      <select name="categorie">
-        <option>
+    <!-- <label>Catégories -->
+      <select id="select" name="categorie">
+        <option value="" disabled selected>Sélectionnez une catégorie</option>
         <option value="enfant">Enfant</option>
         <option value="adulte">Adulte</option>
         <option value="cuisine">Cuisine</option>
@@ -39,10 +13,11 @@
         <option value="jeux">jeux</option>
         <option value="jeu de plein air">jeu de plein air</option>
       </select>
-    </label>
-    <label>Budget Minimum
-      <select name="budgetMin">
-        <option></option>
+    <!-- </label> -->
+    <!-- <label>Budget Minimum -->
+
+    <!--   <select name="budgetMin">
+        <option value="" disabled selected>Sélectionnez un prix minimum</option>
         <% for (var i = 10; i <=30; i+= 10) { %>
           <option
            value="<%= i %>"
@@ -51,11 +26,13 @@
            <%= i %>€
           </option>
         <% } %>
-      </select>
-    </label>
-    <label>Budget Maximum
-        <select name="budgetMax">
-          <option></option>
+      </select> -->
+
+    <!-- </label> -->
+    <!-- <label>Budget Maximum -->
+
+<!--         <select name="budgetMax">
+          <option value="" disabled selected>Sélectionnez un prix maximum</option>
           <% for (var i = 10; i <= 40; i+=10) { %>
               <option
                 value="<%= i %>"
@@ -64,11 +41,38 @@
                 <%= i %>€
               </option>
           <% } %>
-       </select>
-     </label>
-    <button type="submit">Rechercher</button>
-  </form>
-</div>
+       </select> -->
+
+       <script>
+          $( function() {
+            $( "#slider-range" ).slider({
+              range: true,
+              min: 0,
+              max: 200,
+              values: [ 0, 200 ],
+              slide: function( event, ui ) {
+                $( "#amount" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ] );
+              }
+            });
+            $( "#amount" ).val( "€" + $( "#slider-range" ).slider( "values", 0 ) +
+              " - €" + $( "#slider-range" ).slider( "values", 1 ) );
+          } );
+          </script>
+         
+         <p>
+           <label>budget:
+            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+         </p>
+            <div id="slider-range"></div>
+        </label>
+          
+          
+          
+          <!-- </label> -->
+          <button type="submit">Rechercher</button>
+        </form>
+      </div>
+
 
 
 
@@ -76,18 +80,17 @@
   <% if (allGifts.length > 0) { %>
    <% allGifts.forEach((gift) => { %>
 
-    <div class="gift-display"
-    <p>
+    <div class="gift-display">
+      <a href="/gifts/<%= gift._id %>">
+    <h2>
       <%= gift.name %>
-    </p>
+    </h2>
     <img src="<%= gift.imgPath %>" alt="gift picture" width="100%" />
     <p>
       <%= gift.price %> €
     </p>
-    <form action="/gifts/<%= gift._id %>" method="get">
-      <button type="submit">Voir cadeau</button>
-    </form>
   </div>
    <% }) %>
   <% } %>
+</a>
 </div>
