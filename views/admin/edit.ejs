@@ -18,18 +18,24 @@
   <br><br>
 
   <label>Description du cadeau <br>
-    <textarea type="text" name="description" value="<%= gift.description %>">
-    </textarea>
+    <textarea type="text" name="description"><%= gift.description %></textarea>
   </label>
   <br><br>
 
   <label>Catégories <br>
-    <input type="text" name="tags" value="<%= gift.tags %>">
+   <% for(var i = 0; i <= gift.tags.length; i++) { %>
+    <input type="text" name="tags" value="<%= gift.tags[i] %>"> <br>
   </label>
-  <br><br>
+    <% } %>
 
-   <label>Magasin <br>
-    <input type="text" name="store" value="<%= gift.storeName %>">
+   <label>Magasin (TODO: mettre une liste déroulante avec les id en value)<br>
+    <select name="store">
+      <option></option>
+      <% for (var i = 0; i < stores.length; i++) { %>
+      <option value="<%= stores[i]._id %>"><%= stores[i].name %></option>
+      <% } %>
+<!--       <option value="<%= stores.id %>"><%= stores.name %></option>
+ -->    </select>
   </label> 
   <button type="submit">Editer</button>
 </form>

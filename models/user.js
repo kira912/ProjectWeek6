@@ -16,7 +16,11 @@ const userSchema = new Schema({
         type: String,
         enum: ['Admin', 'Client'],
         default: 'Client'
-    }
+    },
+    bookmarks: [{
+        type: Schema.Types.ObjectId,
+        ref: "Gift"
+    }]
 })
 
 const User = mongoose.model('User', userSchema)

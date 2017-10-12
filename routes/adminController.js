@@ -40,13 +40,16 @@ adminController.get('/:id/show', checkRoles('Admin'), (req, res, next) => {
 
 adminController.get('/:id/edit', checkRoles('Admin'), (req, res, next) => {
   const giftId = req.params.id
-
+  console.log("Debug", req)
   Gift.findById(giftId, (err, gift) => {
-    if (err) {
-      return next(err)
-    }
-    res.render('admin/edit', {
-      gift
+    Store.find({}, (err, stores) => {
+      if (err) {
+        return next(err)
+      }
+      res.render('admin/edit', {
+        stores,
+        gift
+      })
     })
   })
 })
@@ -90,13 +93,27 @@ adminController.post('/new', upload.single('photo'), (req, res, next) => {
 })
 
 adminController.post('/:id/edit', upload.single('photo'), (req, res, next) => {
-  const giftId = req.params.id
+  const giftId = req.params.id;
 
-  const update = {
+  console.log("DEBUG req.body", req.body);
+  /*
+   name: 'Nutella 5kg pour les gros',
+  price: '49.3',
+  description: '    ',
+  tags: [ 'cuisine', '' ],
+  store: '' }
+
+  */
+
+  let update = {
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
-    imgPath: `/uploads/${req.file.filename}`
+    tags: req.body.tags,
+    store: req.body.store,
+  }
+  if (req.file && req.file.filename) {
+    update.imgPath = `/uploads/${req.file.filename}`;
   }
 
   Gift.findByIdAndUpdate(giftId, update, (err, allGifts) => {
@@ -117,8 +134,6 @@ adminController.post('/:id/delete', (req, res, next) => {
     res.redirect('/admin/index')
   })
 })
-
-
 
 function checkRoles(role) {
   return function(req, res, next) {

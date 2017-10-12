@@ -17,8 +17,7 @@ const giftSchema = new Schema({
     required: true
   },
   imgPath: {
-    type: String,
-    required: true
+    type: String
   },
   tags:{
     type: [String],

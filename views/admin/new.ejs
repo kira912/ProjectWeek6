@@ -17,9 +17,11 @@
   <br><br>
 
   <label>Catégories <br>
-    <input type="text" name="tags">
+    <% for(var i = 0; i <= 3; i++) { %>
+    <input type="text" name="tags"> <br>
+    <% } %>
   </label>
-  <br><br>
+
 
   <label>Description du cadeau <br>
     <textarea type="text" name="description">
