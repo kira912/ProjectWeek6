@@ -20,7 +20,10 @@ const giftSchema = new Schema({
     type: String,
     required: true
   },
-  tags: [String],
+  tags:{
+    type: [String],
+     required: true
+  },
   
   store:{ type: Schema.Types.ObjectId,
           ref: "Store"

@@ -5,17 +5,26 @@
     
       <div class= "description">
       <h2><%= gift.name %> - <%= gift.price %> €</h2>
-    
-      <p>
-        <%= gift.description %>
-      </p>
-    
-     
+      
+       <p>
+         <%= gift.description %>
+       </p>
+
+       <p>
+         <%= gift.tags %>
+       </p>
+
+      </div>
+      
       <form action="/admin/<%= gift._id %>/edit" method="get">
         <button>Editer cadeau</button>
       </form>
-
+      
       <form action="/admin/<%= gift._id %>/delete" method="get">
         <button>Supprimer cadeau</button>
+      </form>
+
+      <form action="/admin/index" method="get">
+        <button>Annulé</button>
       </form>
 </div>

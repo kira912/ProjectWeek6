@@ -23,7 +23,7 @@ adminController.get('/index', checkRoles('Admin'), (req, res) => {
   })
 })
 
-adminController.get('/:id/show', (req, res, next) => {
+adminController.get('/:id/show', checkRoles('Admin'), (req, res, next) => {
   const giftId = req.params.id
 
   Gift.findById(giftId)
@@ -38,7 +38,7 @@ adminController.get('/:id/show', (req, res, next) => {
     })
 })
 
-adminController.get('/:id/edit', (req, res, next) => {
+adminController.get('/:id/edit', checkRoles('Admin'), (req, res, next) => {
   const giftId = req.params.id
 
   Gift.findById(giftId, (err, gift) => {
@@ -51,7 +51,7 @@ adminController.get('/:id/edit', (req, res, next) => {
   })
 })
 
-adminController.get('/:id/delete', (req, res, next) => {
+adminController.get('/:id/delete', checkRoles('Admin'), (req, res, next) => {
   const giftId = req.params.id
 
   Gift.findById(giftId, (err, gift) => {
@@ -64,25 +64,28 @@ adminController.get('/:id/delete', (req, res, next) => {
   })
 })
 
-adminController.get('/new', (req, res, next) => {
+adminController.get('/new', checkRoles('Admin'), (req, res, next) => {
   res.render('admin/new')
 })
 
 adminController.post('/new', upload.single('photo'), (req, res, next) => {
-  const newGift = new Gift({
+  const infoGift = {
     imgPath: `/uploads/${req.file.filename}`,
     name: req.body.name,
     price: req.body.price,
     tags: req.body.tags,
     description: req.body.description,
-  })
+    //store: req.body.store
+  }
+
+  const newGift = new Gift(infoGift)
 
   newGift.save((err) => {
     if (err) {
+      console.log(err)
       res.render('admin/new')
-    } else {
-      res.redirect('index')
     }
+      res.redirect('/admin/index')
   })
 })
 
@@ -93,7 +96,7 @@ adminController.post('/:id/edit', upload.single('photo'), (req, res, next) => {
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
-    //imgPath: `/uploads/${req.file.filename}`
+    imgPath: `/uploads/${req.file.filename}`
   }
 
   Gift.findByIdAndUpdate(giftId, update, (err, allGifts) => {
@@ -111,7 +114,7 @@ adminController.post('/:id/delete', (req, res, next) => {
     if (err) {
       return next(err)
     }
-    res.render('admin/index')
+    res.redirect('/admin/index')
   })
 })
 
@@ -127,7 +130,4 @@ function checkRoles(role) {
   }
 }
 
-/* var checkAdmin = checkRoles('Admin')
-const checkClient = checkRoles('Client')
-const checkGuest = checkRoles('Guest')  */
 module.exports = adminController
