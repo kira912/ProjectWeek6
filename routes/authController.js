@@ -19,7 +19,7 @@ authController.get('/signup', ensureLoggedOut, (req, res, next) => {
 
 authController.get('/logout', ensureLoggedIn, (req, res, next) => {
   req.logout()
-  res.redirect('/login')
+  res.redirect('/')
 })
 authController.post('/login', passport.authenticate('local-login', {
   successRedirect: '/private/home',

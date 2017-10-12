@@ -54,7 +54,7 @@ router.get('/gifts/:id', (req, res, next) => {
         return next(err)
       }
       res.render('giftDetail', {
-        gift : gift
+        gift 
       })
     })
 })

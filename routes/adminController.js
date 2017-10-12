@@ -86,7 +86,7 @@ adminController.post('/new', upload.single('photo'), (req, res, next) => {
     price: req.body.price,
     tags: req.body.tags,
     description: req.body.description,
-    //store: req.body.store
+    store: req.body.store
   }
 
   const newGift = new Gift(infoGift)
