@@ -1,23 +1,50 @@
-<h2>Signup</h2>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-menu">
+
+    <div class="navbar-start">
+      <a class="navbar-item">
+      Accueil
+      </a>
+    </div>
+
+   </div>
+</nav>
+
+<div class="uptobox"
+<h1>Créer un compte</h1>
 
 <% if (message) { %>
     <p>
         <%= message %>
     </p>
 <% } %>
+</div>
+
+<div class="box box-signup">
 
 <form action="/signup" method="post">
-    <div>
-        <label>Email <br>
-        <input type="email" name="email" placeholder="Email"></label>
-        <br><br>
+
+  <div class="field">
+    <p class="control has-icons-left">
+        <input class="input" type="email" name="email" placeholder="Email"></label>
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>
+    </p>
     </div>
 
-    <div>
-        <label>Password <br>
-        <input type="password" name="password"></label>
-        <br><br>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="password" name="password" placeholder="Mot de passe"></label>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+
+        <div class="control">
+        <button class="button is-link">Créer mon compte</button>
+        </div>
     </div>
 
-    <button>Create New Account</button>
 </form>
+
+</div>

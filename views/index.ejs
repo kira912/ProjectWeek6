@@ -1,47 +1,27 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-menu">
-
-    <div class="navbar-start">
-      <a class="navbar-item" href="/index">
-      Accueil
-      </a>
-      <a class="navbar-item">
-      A propos
-      </a>
-    </div>
-
-    <div class="navbar-end">
-      <a class="navbar-item" href="/login">
-      Connexion
-      </a>
-      <a class="navbar-item" href="/logout">
-      Déconnexion
-      </a>
-    </div>
-   </div>
-</nav>
 
 
-<h1>Bienvenue </h1>
-<div>
+<h1>Des idées de cadeaux pour toute la famille</h1>
+
+<div class="select-cat">
   <form action="/" method="get">
-    <label>Categories
+    <!-- <label>Catégories -->
       <select name="categorie">
-        <option>
+        <option value="" disabled selected>Sélectionnez une catégorie</option>
         <option value="enfant">Enfant</option>
         <option value="adulte">Adulte</option>
         <option value="cuisine">Cuisine</option>
         <option value="bien-être">Bien-être</option>
-        <option value="apprentissage">apprentissage</option>
-        <option value="maison">maison</option>
-        <option value="voyage">voyage</option>
-        <option value="jeux">jeux</option>
-          <option value="jeu de plein air">jeu de plein air</option>
+        <option value="apprentissage">Apprentissage</option>
+        <option value="maison">Maison</option>
+        <option value="voyage">Voyages</option>
+        <option value="jeux">Jeux</option>
+          <option value="jeu de plein air">Jeux de plein air</option>
       </select>
-    </label>
-    <label>Budget Minimum
+    <!-- </label> -->
+    <!-- <label>Budget Minimum -->
+
       <select name="budgetMin">
-        <option></option>
+        <option value="" disabled selected>Sélectionnez un prix minimum</option>
         <% for (var i = 10; i <=30; i+= 10) { %>
           <option
            value="<%= i %>"
@@ -51,10 +31,12 @@
           </option>
         <% } %>
       </select>
-    </label>
-    <label>Budget Maximum
+
+    <!-- </label> -->
+    <!-- <label>Budget Maximum -->
+
         <select name="budgetMax">
-          <option></option>
+          <option value="" disabled selected>Sélectionnez un prix maximum</option>
           <% for (var i = 10; i <= 40; i+=10) { %>
               <option
                 value="<%= i %>"
@@ -64,7 +46,13 @@
               </option>
           <% } %>
        </select>
-     </label>
+
+       <!-- <input type="range" name="price-min" id="price-min" value="10" min="0" max="1000" step="1">
+       <input type="range" name="price-max" id="price-max" value="40" min="0" max="1000" step="1"> -->
+
+
+
+     <!-- </label> -->
     <button type="submit">Rechercher</button>
   </form>
 </div>
@@ -75,18 +63,20 @@
   <% if (allGifts.length > 0) { %>
    <% allGifts.forEach((gift) => { %>
 
-    <div class="gift-display"
-    <p>
+    <div class="gift-display">
+      <a href="/gifts/<%= gift._id %>">
+    <h2>
       <%= gift.name %>
-    </p>
+    </h2>
     <img src="<%= gift.imgPath %>" alt="gift picture" width="100%" />
     <p>
       <%= gift.price %> €
     </p>
-    <form action="/gifts/<%= gift._id %>" method="get">
+    <!-- <form action="/gifts/<%= gift._id %>" method="get">
       <input type="submit" value="Voir cadeau">
-    </form>
+    </form> -->
   </div>
    <% }) %>
   <% } %>
+</a>
 </div>
