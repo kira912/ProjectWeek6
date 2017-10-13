@@ -79,7 +79,7 @@ router.post('/private/bookMark/:giftId', (req, res, next) => {
     })
   })
 
-  router.post('/private/bookMark/:giftId', (req, res, next) => {
+  //router.post('/private/bookMark/:giftId', (req, res, next) => {
 
   router.post('/private/bookMark/:giftId/delete', (req, res, next) => {
 
