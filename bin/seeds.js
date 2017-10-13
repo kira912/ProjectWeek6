@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/idkdo", { useMongoClient: true });
+// mongoose.connect("mongodb://localhost/idkdo", { useMongoClient: true });
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
 
 const Gift = require("../models/gift");
 const Store = require("../models/store");
