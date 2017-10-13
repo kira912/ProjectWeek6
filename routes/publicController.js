@@ -78,13 +78,10 @@ router.post('/private/bookMark/:giftId', (req, res, next) => {
     })
   })
 
-<<<<<<< HEAD
   router.post('/private/bookMark/:giftId', (req, res, next) => {
 
-=======
   router.post('/private/bookMark/:giftId/delete', (req, res, next) => {
-    
->>>>>>> c5d8e676a02106b61f3a41a8baf3a67f50d70fe5
+
       const giftId = req.params.giftId;
 
       console.log("DEBUG req.user._id", req.user._id)
