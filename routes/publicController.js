@@ -8,13 +8,8 @@ const User = require('../models/user')
 /* GET home page. */
 router.get('/', (req, res, next) => {
   const catVal =  req.query.categorie
-
-  if (req.query.test) {
-    var interval = req.query.test.split('-')
-    var budgetMin = interval[0]
-    var budgetMax = interval[1]
-  }
-  console.log("debug", budgetMin)
+  const budgetMin = req.query.min === undefined ? 0 : Number(req.query.min)
+  const budgetMax = req.query.max === undefined ? Infinity : Number(req.query.max)
 
   var filter = {};
   if (catVal) {
@@ -23,12 +18,11 @@ router.get('/', (req, res, next) => {
   
   // filter on price
   filter.price = {};
-  if(budgetMin) {
-    filter.price.$gt = budgetMin;
-  } 
-  if (budgetMax) {
-    filter.price.$lt = budgetMax;
-  }
+  
+  filter.price.$gt = budgetMin ;
+
+    filter.price.$lt = budgetMax
+
   if (Object.keys(filter.price).length === 0) {
     delete filter.price;
   }
@@ -39,8 +33,8 @@ router.get('/', (req, res, next) => {
     }
     res.render('index',{
       allGifts,
-      budgetMinPreviouslySelected: budgetMin,
-      budgetMaxPreviouslySelected: budgetMax,
+       budgetMin,
+       budgetMax,
     })
   })
  })

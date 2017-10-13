@@ -3,9 +3,18 @@
   voici votre liste !
 
 </h2>
-
-<% gifts.forEach((e) => { %>
-  <p>
-    <%= e.name %>
-  </p>
+<div class="gift">
+<% gifts.forEach((gift) => { %>
+  <div class="gift-displagy">
+      <a href="/gifts/<%= gift._id %>">
+    <h2>
+      <%= gift.name %>
+    </h2>
+    <img src="<%= gift.imgPath %>" alt="gift picture"/>
+    <p>
+      <%= gift.price %> €
+    </p>
+  </div>
+</a>
 <% }) %>
+</div>
