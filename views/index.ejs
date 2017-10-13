@@ -51,24 +51,24 @@
               max: 200,
               values: [ 0, 200 ],
               slide: function( event, ui ) {
-                $( "#amount" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ] );
+                $( "#amount" ).val(ui.values[0] + " - ");
+                $("#max").val(ui.values[1]) ;
+                
               }
             });
-            $( "#amount" ).val( "€" + $( "#slider-range" ).slider( "values", 0 ) +
-              " - €" + $( "#slider-range" ).slider( "values", 1 ) );
+            $( "#amount" ).val(  $( "#slider-range" ).slider( "values", 0 ))
+            $( "#max" ).val(  $( "#slider-range" ).slider( "values", 1 ))
           } );
           </script>
          
          <p>
-           <label>budget:
-            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+          <label>budget (minimum / maximum) :
+            <input type="text" name="test" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+            <input type="text" id="max" readonly style="border:0; color:#f6931f; font-weight:bold;">
          </p>
             <div id="slider-range"></div>
         </label>
           
-          
-          
-          <!-- </label> -->
           <button type="submit">Rechercher</button>
         </form>
       </div>
