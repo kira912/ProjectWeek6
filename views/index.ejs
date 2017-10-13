@@ -4,18 +4,18 @@
 <div class="select-cat">
   <form action="/" method="get" id="filter-form">
     <!-- <label>Catégories -->
-      <select id="select" name="categorie">
-        <option value="">Sélectionnez une catégorie</option>
-        <option <%= catVal == "enfant" ? "selected" : "" %> value="enfant">Enfant</option>
-        <option <%= catVal == "adulte" ? "selected" : "" %> value="adulte">Adulte</option>
-        <option <%= catVal == "cuisine" ? "selected" : "" %> value="cuisine">Cuisine</option>
-        <option <%= catVal == "bien-être" ? "selected" : "" %> value="bien-être">Bien-être</option>
-        <option <%= catVal == "apprentissage" ? "selected" : "" %> value="apprentissage">apprentissage</option>
-        <option <%= catVal == "maison" ? "selected" : "" %> value="maison">maison</option>
-        <option <%= catVal == "voyage" ? "selected" : "" %> value="voyage">voyage</option>
-        <option <%= catVal == "jeux" ? "selected" : "" %> value="jeux">jeux</option>
-        <option <%= catVal == "jeu de plein air" ? "selected" : "" %> value="jeu de plein air">jeu de plein air</option>
-      </select>
+    <select id="select" name="categorie">
+      <option value="">Sélectionnez une catégorie</option>
+      <option <%=catVal=="enfant" ? "selected" : "" %> value="enfant">Enfant</option>
+      <option <%=catVal=="adulte" ? "selected" : "" %> value="adulte">Adulte</option>
+      <option <%=catVal=="cuisine" ? "selected" : "" %> value="cuisine">Cuisine</option>
+      <option <%=catVal=="bien-être" ? "selected" : "" %> value="bien-être">Bien-être</option>
+      <option <%=catVal=="apprentissage" ? "selected" : "" %> value="apprentissage">apprentissage</option>
+      <option <%=catVal=="maison" ? "selected" : "" %> value="maison">maison</option>
+      <option <%=catVal=="voyage" ? "selected" : "" %> value="voyage">voyage</option>
+      <option <%=catVal=="jeux" ? "selected" : "" %> value="jeux">jeux</option>
+      <option <%=catVal=="jeu de plein air" ? "selected" : "" %> value="jeu de plein air">jeu de plein air</option>
+    </select>
     <!-- </label> -->
 
 
@@ -26,12 +26,6 @@
           </div>
             <input type="text" hidden name="max" readonly style="border:0; color:#f6931f; font-weight:bold;">
 
-
-         <p>
-          <label>budget (minimum / maximum) :
-            <input type="text" name="min" readonly style="border:0; color:#f6931f; font-weight:bold;">
-            <input type="text" name="max" readonly style="border:0; color:#f6931f; font-weight:bold;">
-         </p>
             <div id="slider-range"></div>
         </label>
 
@@ -87,21 +81,22 @@ $('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">' + $('
 
 
 
-<div class= "gift">
-  <% if (allGifts.length > 0) { %>
-   <% allGifts.forEach((gift) => { %>
 
-    <div class="gift-display">
-      <a href="/gifts/<%= gift._id %>">
-    <h2>
-      <%= gift.name %>
-    </h2>
-    <img src="<%= gift.imgPath %>" alt="gift picture" width="100%" />
-    <h2>
-      <%= gift.price %> €
-    </h2>
-  </div>
-   <% }) %>
-  <% } %>
-</a>
+<div class="gift">
+  <% if (allGifts.length > 0) { %>
+    <% allGifts.forEach((gift) => { %>
+
+      <div class="gift-display">
+        <a href="/gifts/<%= gift._id %>">
+          <h2>
+            <%= gift.name %>
+          </h2>
+          <img src="<%= gift.imgPath %>" alt="gift picture" width="100%" />
+          <p>
+            <%= gift.price %> €
+          </p>
+      </div>
+      <% }) %>
+        <% } %>
+          </a>
 </div>

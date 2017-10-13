@@ -10,7 +10,7 @@ const adminController = express.Router()
 const Gift = require('../models/gift')
 const User = require('../models/user')
 const Store = require('../models/store')
- 
+
 adminController.get('/index', checkRoles('Admin'), (req, res) => {
   Gift.find({}, (err, allGifts) => {
     if (err) {
@@ -77,6 +77,10 @@ adminController.get('/new', checkRoles('Admin'), (req, res, next) => {
   })
 })
 
+adminController.get('/new-store', checkRoles('Admin'), (req, res, next) => {
+    res.render('admin/new-store')
+})
+
 adminController.post('/new', upload.single('photo'), (req, res, next) => {
   const infoGift = {
     imgPath: `/uploads/${req.file.filename}`,
@@ -93,6 +97,24 @@ adminController.post('/new', upload.single('photo'), (req, res, next) => {
     if (err) {
       console.log(err)
       res.render('admin/new')
+    }
+      res.redirect('/admin/index')
+  })
+})
+
+adminController.post('/new-store', (req, res, next) => {
+  const infoStore = {
+    name: req.body.name,
+    query: req.body.query,
+    url: req.body.url,
+  }
+
+  const newStore = new Store(infoStore)
+
+  newStore.save((err) => {
+    if (err) {
+      console.log(err)
+      res.render('admin/new-store')
     }
       res.redirect('/admin/index')
   })
@@ -117,6 +139,7 @@ adminController.post('/:id/edit', upload.single('photo'), (req, res, next) => {
     price: req.body.price,
     tags: req.body.tags,
     store: req.body.store,
+    url: req.body.url
   }
   if (req.file && req.file.filename) {
     update.imgPath = `/uploads/${req.file.filename}`;

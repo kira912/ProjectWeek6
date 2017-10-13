@@ -23,7 +23,7 @@ const giftSchema = new Schema({
     type: [String],
      required: true
   },
-  
+  url: String,
   store:{ type: Schema.Types.ObjectId,
           ref: "Store"
   }

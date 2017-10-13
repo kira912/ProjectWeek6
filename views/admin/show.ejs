@@ -1,7 +1,23 @@
 
+  <div class="show-buttons">
+
+  <form action="/admin/<%= gift._id %>/edit" method="get">
+    <button class="button is-info button-show">Editer cadeau</button>
+  </form>
+
+  <form action="/admin/<%= gift._id %>/delete" method="get">
+    <button class="button is-info button-show">Supprimer cadeau</button>
+  </form>
+
+  <form action="/admin/index" method="get">
+    <button class="button is-info button-show">Annuler</button>
+  </form>
+
+</div>
+
 <div class="container">
 
-      <img src="<%= gift.imgPath %>" alt="gift picture" id="detail-picture" />
+      <img src="<%= gift.imgPath %>" alt="gift picture" id="show-picture" />
 
       <div class= "description">
       <h2><%= gift.name %> - <%= gift.price %> €</h2>
@@ -19,15 +35,5 @@
        </p>
       </div>
 
-      <form action="/admin/<%= gift._id %>/edit" method="get">
-        <button>Editer cadeau</button>
-      </form>
 
-      <form action="/admin/<%= gift._id %>/delete" method="get">
-        <button>Supprimer cadeau</button>
-      </form>
-
-      <form action="/admin/index" method="get">
-        <button>Annuler</button>
-      </form>
 </div>

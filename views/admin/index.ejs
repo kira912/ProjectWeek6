@@ -1,15 +1,22 @@
 <h1>Panneau de contrôle Administrateur</h1>
 
 <div class="admin-button">
+
   <form action="/admin/new" method="get">
     <button class="button is-info" type="submit">Ajouter un cadeau</button>
+  </form>
+
+  <form action="/admin/new-store" method="get">
+    <button class="button is-info" type="submit">Ajouter un magasin</button>
   </form>
 
   <form action="/" method="get">
     <button  class="button is-info" type="submit">Retour</button>
   </form>
+
 </div>
-<div>
+
+<div class="gifts-list">
   <ul>
     <% if (allGifts.length > 0) { %>
       <% allGifts.forEach((gift) => { %>
