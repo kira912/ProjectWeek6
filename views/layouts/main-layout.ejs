@@ -15,7 +15,12 @@
   </head>
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-menu">
+      <!-- <button class="button navbar-burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button> -->
+      <div class="navbar-menu "  id="navMenu">
 
         <div class="navbar-start">
           <a class="navbar-item" href="/">
@@ -27,7 +32,7 @@
           <% if (user) { %>
             <% if (user.role === 'Admin') { %>
              <a href="/admin/index" class="navbar-item">
-               Panneau administrateur  
+               Panneau administrateur
              </a>
             <% } %>
            <% } %>
