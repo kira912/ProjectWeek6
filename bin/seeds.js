@@ -200,7 +200,7 @@ const giftData = [
 //////////// GESTION DE LA DATABASE /////////////////
 
 // Only add a user when there is no one
-User.find({}, (err, users) => {
+User.find({role: "Admin"}, (err, users) => {
   if (users.length === 0) {
     Users.create(
       {
@@ -209,7 +209,9 @@ User.find({}, (err, users) => {
       	"bookmarks" : [ ],
       	"role" : "Admin",
       }
-    )
+    , (err, users) => {
+      console.log("1 Admin user created (hello@gmail.com)")
+    })
   }
 });
 
