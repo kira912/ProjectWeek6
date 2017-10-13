@@ -15,10 +15,10 @@ router.get('/', (req, res, next) => {
   if (catVal) {
    filter.tags = catVal;
   }
-  
+
   // filter on price
   filter.price = {};
-  
+
   filter.price.$gt = budgetMin ;
 
     filter.price.$lt = budgetMax
@@ -39,7 +39,8 @@ router.get('/', (req, res, next) => {
     })
   })
  })
- 
+ //bla bla
+
 
 /* Get gift page */
 
@@ -47,7 +48,7 @@ router.get('/gifts/:id', (req, res, next) => {
   const giftId = req.params.id
 
   console.log("DEBUG req.user", req.user)
-  
+
   Gift.findById(giftId)
     .populate("store")
     .exec((err, gift) => {
@@ -56,18 +57,18 @@ router.get('/gifts/:id', (req, res, next) => {
       }
       res.render('giftDetail', {
         gift,
-        isBookmarked: req.user.bookmarks.indexOf(giftId) !== -1
+        isBookmarked: req.user && req.user.bookmarks.indexOf(giftId) !== -1
       })
     })
 })
 
 router.post('/private/bookMark/:giftId', (req, res, next) => {
-  
+
     const giftId = req.params.giftId;
 
     console.log("DEBUG req.user._id", req.user._id)
-  
-  
+
+
     User.findByIdAndUpdate(req.user._id, {
       $addToSet: {
         bookmarks: giftId
@@ -78,13 +79,15 @@ router.post('/private/bookMark/:giftId', (req, res, next) => {
     })
   })
 
+  //router.post('/private/bookMark/:giftId', (req, res, next) => {
+
   router.post('/private/bookMark/:giftId/delete', (req, res, next) => {
-    
+
       const giftId = req.params.giftId;
-  
+
       console.log("DEBUG req.user._id", req.user._id)
-    
-    
+
+
       User.findByIdAndUpdate(req.user._id, {
         $pull: {
           bookmarks: giftId
