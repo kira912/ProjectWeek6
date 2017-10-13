@@ -1,14 +1,31 @@
 <div class="container-details">
 
-
+<div class="left-details">
+  
   <a href="<%= gift.url %>" target="_blank">
     <img src="<%= gift.imgPath %>" alt="gift picture" id="detail-picture"/>
   </a>
 
-  <div class="description">
-    <form action="/" method="get">
-      <button>Retour</button>
+  <div class="details-buttons"
+  <% if(!isBookmarked) { %>
+    <form action="/private/bookMark/<%= gift._id %>" method="post">
+      <button type="submit">Ajouter aux favoris</button>
     </form>
+
+    <% } else { %>
+      <form action="/private/bookMark/<%= gift._id %>/delete" method="post">
+      <button type="submit">Supprimer des favoris</button>
+    </form>
+      <% } %>
+
+      <form action="/" method="get">
+        <button>Retour</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="description">
+
     <h2>
       <%= gift.name %> -
         <%= gift.price %> €</h2>
@@ -21,16 +38,7 @@
       <%= gift.store.name %>
     </a>
 
-    <% if(!isBookmarked) { %>
-      <form action="/private/bookMark/<%= gift._id %>" method="post">
-        <button type="submit">Ajouter aux favoris</button>
-      </form>
 
-      <% } else { %>
-        <form action="/private/bookMark/<%= gift._id %>/delete" method="post">
-        <button type="submit">Supprimer des favoris</button>
-      </form>
-        <% } %>
 
           <iframe width="600" height="450" frameborder="0" style="border:0" src="<%= gift.store.query %>" allowfullscreen>
           </iframe>

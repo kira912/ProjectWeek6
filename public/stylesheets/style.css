@@ -61,7 +61,7 @@ h1 {
 .description {
   width: 40%;
   height: 40%;
-  margin: 0 0 5% 2%;
+  margin: 5%;
   text-align: left;
 }
 
@@ -179,4 +179,17 @@ iframe {
 .show-buttons {
   width: 50%;
   display: flex;
+}
+
+.left-details {
+  margin-top: 2%;
+}
+
+.left-details button {
+  border-radius: 5px;
+  background-color: #ff4f1a;
+  height: 50px;
+  color: white;
+  font-weight: bold;
+  width: 50%;
 }
