@@ -83,4 +83,21 @@ router.post('/private/bookMark/:giftId', (req, res, next) => {
     })
   })
 
+  router.post('/private/bookMark/:giftId', (req, res, next) => {
+    
+      const giftId = req.params.giftId;
+  
+      console.log("DEBUG req.user._id", req.user._id)
+    
+    
+      User.findByIdAndUpdate(req.user._id, {
+        $pull: {
+          bookmarks: giftId
+        }
+      },
+      (err, user) => {
+        res.redirect('/gifts/'+giftId);
+      })
+    })
+
 module.exports = router;
