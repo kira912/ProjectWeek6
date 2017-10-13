@@ -7,11 +7,11 @@
         <option value="adulte">Adulte</option>
         <option value="cuisine">Cuisine</option>
         <option value="bien-être">Bien-être</option>
-        <option value="apprentissage">apprentissage</option>
-        <option value="maison">maison</option>
-        <option value="voyage">voyage</option>
-        <option value="jeux">jeux</option>
-        <option value="jeu de plein air">jeu de plein air</option>
+        <option value="apprentissage">Apprentissage</option>
+        <option value="maison">Maison</option>
+        <option value="voyage">Voyages</option>
+        <option value="jeux">Jeux</option>
+        <option value="jeu de plein air">Jeux de plein air</option>
       </select>
     <!-- </label> -->
     <!-- <label>Budget Minimum -->
@@ -58,16 +58,16 @@
               " - €" + $( "#slider-range" ).slider( "values", 1 ) );
           } );
           </script>
-         
+
          <p>
            <label>budget:
             <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
          </p>
             <div id="slider-range"></div>
         </label>
-          
-          
-          
+
+
+
           <!-- </label> -->
           <button type="submit">Rechercher</button>
         </form>
@@ -86,9 +86,9 @@
       <%= gift.name %>
     </h2>
     <img src="<%= gift.imgPath %>" alt="gift picture" width="100%" />
-    <p>
+    <h2>
       <%= gift.price %> €
-    </p>
+    </h2>
   </div>
    <% }) %>
   <% } %>
