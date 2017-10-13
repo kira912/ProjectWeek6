@@ -17,14 +17,17 @@
     
 
          
-         <p>
-          <label>budget (minimum / maximum) :
-            <input type="text" name="min" readonly style="border:0; color:#f6931f; font-weight:bold;">
-            <input type="text" name="max" readonly style="border:0; color:#f6931f; font-weight:bold;">
-         </p>
+   
+            <div class="range-slider">
+            <input type="text" hidden name="min" readonly style="border:0; color:#f6931f; font-weight:bold;">
+            
+          </div>
+            <input type="text" hidden name="max" readonly style="border:0; color:#f6931f; font-weight:bold;">
             <div id="slider-range"></div>
-        </label>
+        </label> 
 
+
+        
           
           <button type="submit">Rechercher</button>
         </form>
@@ -35,16 +38,32 @@
               max: 200,
               values: [ <%= budgetMin %>, <%= budgetMax %> ],
               slide: function( event, ui ) {
-                $('#filter-form input[name="min"]').val(ui.values[0]);
-                $('#filter-form input[name="max"]').val(ui.values[1]) ;
+               $('#filter-form input[name="min"]').val(ui.values[0]);
+                $('#filter-form input[name="max"]').val(ui.values[1]) ; 
                 
+
+                $('.ui-slider-handle:eq(0) .price-range-min').html(ui.values[ 0 ] + '€');
+		          $('.ui-slider-handle:eq(1) .price-range-max').html( ui.values[ 1 ] + '€');
+		    $('.price-range-both').html('<i>' + ui.values[ 0 ] + ' - </i>' + ui.values[ 1 ] + '€' );
+
               }
             });
             $( '#filter-form input[name="min"]').val(  $( "#slider-range" ).slider( "values", 0 ))
-            
-            /* + $( "#slider-range" ).slider( "values", 1 ) ); */
-            
+                        
             $( '#filter-form input[name="max"]' ).val(  $( "#slider-range" ).slider( "values", 1 ))
+
+
+            
+
+
+            $('.ui-slider-range').append('<span class="price-range-both value"><i>€' + $('#slider').slider('values', 0 ) + ' - </i>' + $('#slider').slider('values', 1 ) + '</span>');
+
+$('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">' + $('#slider-range').slider('values', 0 ) + '</span>');
+
+$('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">' + $('#slider-range').slider('values', 1 ) + '</span>');
+
+
+            
           </script>
       </div>
 
