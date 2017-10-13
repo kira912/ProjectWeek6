@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 // mongoose.connect("mongodb://localhost/idkdo", { useMongoClient: true });
 mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
 
+const User = require("../models/user");
 const Gift = require("../models/gift");
 const Store = require("../models/store");
 
@@ -196,6 +198,20 @@ const giftData = [
 
 
 //////////// GESTION DE LA DATABASE /////////////////
+
+// Only add a user when there is no one
+User.find({}, (err, users) => {
+  if (users.length === 0) {
+    Users.create(
+      {
+      	"email" : "hello@gmail.com",
+      	"password" : "$2a$10$rgNI.6KL4XwTVipYFGuyPe.FY0CRE4eXb3OYicPX73PtnVjyO0t7O",
+      	"bookmarks" : [ ],
+      	"role" : "Admin",
+      }
+    )
+  }
+});
 
 Gift.remove({}, err => {
   Store.remove({}, err => {
