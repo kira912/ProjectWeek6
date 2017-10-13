@@ -72,7 +72,7 @@
 <div class="gift">
   <% if (allGifts.length > 0) { %>
     <% allGifts.forEach((gift) => { %>
-
+      
       <div class="gift-display">
         <a href="/gifts/<%= gift._id %>">
           <h2>
@@ -82,8 +82,11 @@
           <p>
             <%= gift.price %> €
           </p>
-      </div>
-      <% }) %>
+        </div>
+        <% }) %>
+        <% } %>
+        <% if (!allGifts.length) { %>
+          <h2>Votre recherche ne correspond a aucun cadeaux !</h2>
         <% } %>
           </a>
 </div>

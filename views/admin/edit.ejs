@@ -1,45 +1,79 @@
 <h2>Editer un cadeau</h2>
+<div class="level">
+  <div>
+    <img src="<%= gift.imgPath %>" alt="photo cadeau" />
+  </div>
+  <div class="level-left">
+    <form action="/admin/<%= gift._id %>/edit" method="post" enctype="multipart/form-data">
+      <div class="file has-name">
+        <label class="file-label">Photo du cadeau
+          <input class="file-input" type="file" name="resume">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fa fa-upload"></i>
+            </span>
 
-<form action="/admin/<%= gift._id %>/edit" method="post" enctype="multipart/form-data">
-  <label>Photo du cadeau <br>
-    <img src="<%= gift.imgPath %>" alt="photo cadeau" width="20%" />
-    <input type="file" name="photo" />
-  </label>
-  <br><br>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+        </label>
+      </div>
+      <br>
+      <br>
+      <div class="decription">
+        <label>Nom du cadeau
+          <br>
+          <input class="control" type="text" name="name" value="<%= gift.name %>">
+        </label>
+        <br>
+        <br>
 
-  <label>Nom du cadeau <br>
-    <input type="text" name="name" value="<%= gift.name %>">
-  </label>
-  <br><br>
+        <label>Prix du cadeau
+          <br>
+          <input class="control" type="text" name="price" value="<%= gift.price %>">
+        </label>
+        <br>
+        <br>
 
-  <label>Prix du cadeau <br>
-    <input type="text" name="price" value="<%= gift.price %>">
-  </label>
-  <br><br>
+        <label>Description du cadeau
+          <br>
+          <textarea type="text" name="description">
+            <%= gift.description %>
+          </textarea>
+        </label>
+        <br>
+        <br>
 
-  <label>Description du cadeau <br>
-    <textarea type="text" name="description"><%= gift.description %></textarea>
-  </label>
-  <br><br>
+        <label>Catégories
+          <br>
+          <% for(var i = 0; i <= gift.tags.length; i++) { %>
+            <input class="control" type="text" name="tags" value="<%= gift.tags[i] %>">
+            <br>
+        </label>
+        <% } %>
 
-  <label>Catégories <br>
-   <% for(var i = 0; i <= gift.tags.length; i++) { %>
-    <input type="text" name="tags" value="<%= gift.tags[i] %>"> <br>
-  </label>
-    <% } %>
+          <label>Magasin
+            <br>
+            <select class="select" name="store">
+              <option></option>
+              <% for (var i = 0; i < stores.length; i++) { %>
+                <option value="<%= stores[i]._id %>">
+                  <%= stores[i].name %>
+                </option>
+                <% } %>
 
-   <label>Magasin<br>
-    <select name="store">
-      <option></option>
-      <% for (var i = 0; i < stores.length; i++) { %>
-      <option value="<%= stores[i]._id %>"><%= stores[i].name %></option>
-      <% } %>
-<!--       <option value="<%= stores.id %>"><%= stores.name %></option>
- -->    </select>
-  </label>
-  <button class="button is-info" type="submit">Editer</button>
-</form>
-
-<form action="/admin/index" method="get">
-  <button class="button is-info">Annuler</button>
-</form>
+            </select>
+          </label>
+          <div class="control">
+            <button class=" button is-primary" type="submit">Editer</button>
+    </form>
+    </div>
+    <div class="control">
+      <form action="/admin/index" method="get">
+        <button class="button is-primary">Annuler</button>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>
