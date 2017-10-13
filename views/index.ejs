@@ -1,115 +1,89 @@
 <div class="select-cat">
   <form action="/" method="get" id="filter-form">
     <!-- <label>Catégories -->
-      <select id="select" name="categorie">
-        <option value="">Sélectionnez une catégorie</option>
-        <option <%= catVal == "enfant" ? "selected" : "" %> value="enfant">Enfant</option>
-        <option <%= catVal == "adulte" ? "selected" : "" %> value="adulte">Adulte</option>
-        <option <%= catVal == "cuisine" ? "selected" : "" %> value="cuisine">Cuisine</option>
-        <option <%= catVal == "bien-être" ? "selected" : "" %> value="bien-être">Bien-être</option>
-        <option <%= catVal == "apprentissage" ? "selected" : "" %> value="apprentissage">apprentissage</option>
-        <option <%= catVal == "maison" ? "selected" : "" %> value="maison">maison</option>
-        <option <%= catVal == "voyage" ? "selected" : "" %> value="voyage">voyage</option>
-        <option <%= catVal == "jeux" ? "selected" : "" %> value="jeux">jeux</option>
-        <option <%= catVal == "jeu de plein air" ? "selected" : "" %> value="jeu de plein air">jeu de plein air</option>
-      </select>
+    <select id="select" name="categorie">
+      <option value="">Sélectionnez une catégorie</option>
+      <option <%=catVal=="enfant" ? "selected" : "" %> value="enfant">Enfant</option>
+      <option <%=catVal=="adulte" ? "selected" : "" %> value="adulte">Adulte</option>
+      <option <%=catVal=="cuisine" ? "selected" : "" %> value="cuisine">Cuisine</option>
+      <option <%=catVal=="bien-être" ? "selected" : "" %> value="bien-être">Bien-être</option>
+      <option <%=catVal=="apprentissage" ? "selected" : "" %> value="apprentissage">apprentissage</option>
+      <option <%=catVal=="maison" ? "selected" : "" %> value="maison">maison</option>
+      <option <%=catVal=="voyage" ? "selected" : "" %> value="voyage">voyage</option>
+      <option <%=catVal=="jeux" ? "selected" : "" %> value="jeux">jeux</option>
+      <option <%=catVal=="jeu de plein air" ? "selected" : "" %> value="jeu de plein air">jeu de plein air</option>
+    </select>
     <!-- </label> -->
 
-<<<<<<< HEAD
-         
-   
-            <div class="range-slider">
-            <input type="text" hidden name="min" readonly style="border:0; color:#f6931f; font-weight:bold;">
-            
-          </div>
-            <input type="text" hidden name="max" readonly style="border:0; color:#f6931f; font-weight:bold;">
-=======
 
 
-         <p>
-          <label>budget (minimum / maximum) :
-            <input type="text" name="min" readonly style="border:0; color:#f6931f; font-weight:bold;">
-            <input type="text" name="max" readonly style="border:0; color:#f6931f; font-weight:bold;">
-         </p>
->>>>>>> d8838a31f44988c7bf8c1025849948c89ce22141
-            <div id="slider-range"></div>
-        </label> 
 
+      <input type="text" hidden name="min" readonly style="border:0; color:#f6931f; font-weight:bold;">
 
-<<<<<<< HEAD
-        
-          
-=======
+    <input type="text" hidden name="max" readonly style="border:0; color:#f6931f; font-weight:bold;">
 
->>>>>>> d8838a31f44988c7bf8c1025849948c89ce22141
-          <button type="submit">Rechercher</button>
-        </form>
-        <script>
-            $( "#slider-range" ).slider({
-              range: true,
-              min: 0,
-              max: 200,
-              values: [ <%= budgetMin %>, <%= budgetMax %> ],
-              slide: function( event, ui ) {
-<<<<<<< HEAD
-               $('#filter-form input[name="min"]').val(ui.values[0]);
-                $('#filter-form input[name="max"]').val(ui.values[1]) ; 
-                
-
-                $('.ui-slider-handle:eq(0) .price-range-min').html(ui.values[ 0 ] + '€');
-		          $('.ui-slider-handle:eq(1) .price-range-max').html( ui.values[ 1 ] + '€');
-		    $('.price-range-both').html('<i>' + ui.values[ 0 ] + ' - </i>' + ui.values[ 1 ] + '€' );
-=======
-                $('#filter-form input[name="min"]').val(ui.values[0]);
-                $('#filter-form input[name="max"]').val(ui.values[1]) ;
->>>>>>> d8838a31f44988c7bf8c1025849948c89ce22141
-
-              }
-            });
-            $( '#filter-form input[name="min"]').val(  $( "#slider-range" ).slider( "values", 0 ))
-<<<<<<< HEAD
-                        
-            $( '#filter-form input[name="max"]' ).val(  $( "#slider-range" ).slider( "values", 1 ))
-
-
-            
-
-
-            $('.ui-slider-range').append('<span class="price-range-both value"><i>€' + $('#slider').slider('values', 0 ) + ' - </i>' + $('#slider').slider('values', 1 ) + '</span>');
-
-$('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">' + $('#slider-range').slider('values', 0 ) + '</span>');
-
-$('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">' + $('#slider-range').slider('values', 1 ) + '</span>');
-
-
-            
-=======
-
-            /* + $( "#slider-range" ).slider( "values", 1 ) ); */
-
-            $( '#filter-form input[name="max"]' ).val(  $( "#slider-range" ).slider( "values", 1 ))
->>>>>>> d8838a31f44988c7bf8c1025849948c89ce22141
-          </script>
-      </div>
+     <div id="slider-range"></div> 
+    </label>
 
 
 
 
-<div class= "gift">
+    <button type="submit">Rechercher</button>
+  </form>
+  <script>
+    $("#slider-range").slider({
+      range: true,
+      min: 0,
+      max: 200,
+      values: [<%= budgetMin %>, <%= budgetMax %>],
+      slide: function (event, ui) {
+        $('#filter-form input[name="min"]').val(ui.values[0]);
+        $('#filter-form input[name="max"]').val(ui.values[1]);
+
+
+        $('.ui-slider-handle:eq(0) .price-range-min').html(ui.values[0] + '€');
+        $('.ui-slider-handle:eq(1) .price-range-max').html(ui.values[1] + '€');
+        $('.price-range-both').html('<i>' + ui.values[0] + ' - </i>' + ui.values[1] + '€');
+
+      }
+    });
+    $('#filter-form input[name="min"]').val($("#slider-range").slider("values", 0))
+
+    $('#filter-form input[name="max"]').val($("#slider-range").slider("values", 1))
+
+
+
+
+
+    $('.ui-slider-range').append('<span class="price-range-both value"><i>€' + $('#slider').slider('values', 0) +
+      ' - </i>' + $('#slider').slider('values', 1) + '</span>');
+
+    $('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">' + $('#slider-range').slider('values', 0) +
+      '</span>');
+
+    $('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">' + $('#slider-range').slider('values', 1) +
+      '</span>');
+  </script>
+</div>
+
+
+
+
+<div class="gift">
   <% if (allGifts.length > 0) { %>
-   <% allGifts.forEach((gift) => { %>
+    <% allGifts.forEach((gift) => { %>
 
-    <div class="gift-display">
-      <a href="/gifts/<%= gift._id %>">
-    <h2>
-      <%= gift.name %>
-    </h2>
-    <img src="<%= gift.imgPath %>" alt="gift picture" width="100%" />
-    <h2>
-      <%= gift.price %> €
-    </h2>
-  </div>
-   <% }) %>
-  <% } %>
-</a>
+      <div class="gift-display">
+        <a href="/gifts/<%= gift._id %>">
+          <h2>
+            <%= gift.name %>
+          </h2>
+          <img src="<%= gift.imgPath %>" alt="gift picture" width="100%" />
+          <p>
+            <%= gift.price %> €
+          </p>
+      </div>
+      <% }) %>
+        <% } %>
+          </a>
 </div>

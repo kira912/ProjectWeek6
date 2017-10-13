@@ -164,3 +164,7 @@ iframe {
 .value i {
   font-style: normal;
 }
+
+ .button-show {
+  width: 20%;
+} 
