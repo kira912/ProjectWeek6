@@ -35,6 +35,7 @@ router.get('/', (req, res, next) => {
       allGifts,
        budgetMin,
        budgetMax,
+       catVal
     })
   })
  })
@@ -77,7 +78,7 @@ router.post('/private/bookMark/:giftId', (req, res, next) => {
     })
   })
 
-  router.post('/private/bookMark/:giftId', (req, res, next) => {
+  router.post('/private/bookMark/:giftId/delete', (req, res, next) => {
     
       const giftId = req.params.giftId;
   
