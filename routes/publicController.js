@@ -8,10 +8,13 @@ const User = require('../models/user')
 /* GET home page. */
 router.get('/', (req, res, next) => {
   const catVal =  req.query.categorie
-  var budgetMin = req.query.budgetMin
-  var budgetMax = req.query.budgetMax
 
-  console.log(budgetMax)
+  if (req.query.test) {
+    var interval = req.query.test.split('-')
+    var budgetMin = interval[0]
+    var budgetMax = interval[1]
+  }
+  console.log("debug", budgetMin)
 
   var filter = {};
   if (catVal) {
@@ -79,5 +82,22 @@ router.post('/private/bookMark/:giftId', (req, res, next) => {
       res.redirect('/gifts/'+giftId);
     })
   })
+
+  router.post('/private/bookMark/:giftId', (req, res, next) => {
+    
+      const giftId = req.params.giftId;
+  
+      console.log("DEBUG req.user._id", req.user._id)
+    
+    
+      User.findByIdAndUpdate(req.user._id, {
+        $pull: {
+          bookmarks: giftId
+        }
+      },
+      (err, user) => {
+        res.redirect('/gifts/'+giftId);
+      })
+    })
 
 module.exports = router;

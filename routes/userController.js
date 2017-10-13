@@ -7,18 +7,16 @@ const { ensureLoggedIn, ensureLoggedOut } = require('../middlewares/auth')
 const Gift = require('../models/gift')
 const User = require('../models/user')
 
-userController.get('/bookMark', ensureLoggedIn, (req, res, next) => {
-  const userId = req.params.id
-  
+userController.get('/bookMark', ensureLoggedIn, (req, res, next) => {  
   console.log("DEBUG user.bookmarks",req.user)
-  User.findById(userId, (err, gifts) => {
-    if (err) {
-      return next(err)
-    }
+  User.findById(req.user._id).then(user => {
+    return user.populate("bookmarks").execPopulate()
+  }).then(user => {
+    console.log(user)
     res.render('private/bookMark', {
-      gifts
+      gifts: user.bookmarks
     })
-  })
+  }).catch(err => next(err))
 })
 
 /* userController.post('/giftDetail', (req, res, next) => {
