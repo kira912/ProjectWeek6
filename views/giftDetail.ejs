@@ -24,8 +24,8 @@
       </form>
 
       <% } else { %>
-        <form action="/private/bookMark/<%= gift._id %>" method="post">
-        <button type="submit">Supprimer des favoris (TODO)</button>
+        <form action="/private/bookMark/<%= gift._id %>/delete" method="post">
+        <button type="submit">Supprimer des favoris</button>
       </form>
         <% } %>
 
