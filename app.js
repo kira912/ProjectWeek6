@@ -12,13 +12,13 @@ const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const expressLayouts = require("express-ejs-layouts");
-
+require("dotenv").config();
 const User = require('./models/user')
 const Gift = require('./models/gift')
 
 
-mongoose.connect('mongodb://localhost/idkdo', { useMongoClient: true,
-})
+// mongoose.connect("mongodb://localhost/idkdo");
+mongoose.connect(process.env.MONGODB_URI);
 
 const app = express();
 console.log("express started")

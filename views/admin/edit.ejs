@@ -3,7 +3,7 @@
 <form action="/admin/<%= gift._id %>/edit" method="post" enctype="multipart/form-data">
   <label>Photo du cadeau <br>
     <img src="<%= gift.imgPath %>" alt="photo cadeau" width="20%" />
-    <input type="file" name="photo" />  
+    <input type="file" name="photo" />
   </label>
   <br><br>
 
@@ -36,10 +36,10 @@
       <% } %>
 <!--       <option value="<%= stores.id %>"><%= stores.name %></option>
  -->    </select>
-  </label> 
+  </label>
   <button type="submit">Editer</button>
 </form>
 
 <form action="/admin/index" method="get">
-  <button>Annulé </button>
+  <button>Annuler</button>
 </form>
